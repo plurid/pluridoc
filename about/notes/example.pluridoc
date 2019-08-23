@@ -1,0 +1,16 @@
+// <<< plane_id <<< plane_title <<<
+    // write code here
+    import functionFromOtherPlane from link#plane_id
+
+
+// >>> plane_id >>> plane_title >>>
+
+
+
+// <<< plane_id <<< plane_title <<<
+    // write code here
+
+    function functionFromOtherPlane() {}
+
+
+// >>> plane_id >>> plane_title >>>
