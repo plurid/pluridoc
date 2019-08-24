@@ -106,3 +106,18 @@ it must be first escaped
 this plane contains a plurid divider \<<<
 
 >>>
+
+
+
+
+
+---
+
+for the CLI
+
+to be able to do:
+
+> pluridoc file.plurid --output javascript
+
+and to get a folder name 'file' with index.js and all the containing planes as files
+
