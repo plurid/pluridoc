@@ -11,5 +11,5 @@ export interface Plane {
 
 export interface PlaneMetadata {
     location?: string;
-    content?: string[]
+    processor?: string[]
 }

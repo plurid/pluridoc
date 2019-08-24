@@ -18,7 +18,8 @@ plane content
                 metadata: {},
             }
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
 
@@ -39,14 +40,15 @@ plane content
                 },
             }
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('reads basic metadata tags', () => {
         const text = `
 <<<
 <<< location: root
-<<< content: javascript
+<<< processor: javascript
 plane content
 >>>
         `;
@@ -58,11 +60,12 @@ plane content
                 ],
                 metadata: {
                     location: 'root',
-                    content: ['javascript'],
+                    processor: ['javascript'],
                 },
             }
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('reads multiline content', () => {
@@ -84,7 +87,8 @@ plane content line two
                 metadata: {},
             }
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('reads plurid-plane content', () => {
@@ -112,7 +116,8 @@ plane 2
                 metadata: {},
             },
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('reads plurid-plane content', () => {
@@ -144,7 +149,46 @@ plane 2
                 metadata: {},
             },
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
+    });
+
+    it('reads plurid-plane content with metadata', () => {
+        const text = `
+<<<
+<<< location: root
+plane 1a
+
+plane 1b
+>>>
+
+<<< location: left
+plane 2
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    'plane 1a',
+                    '',
+                    'plane 1b',
+                ],
+                metadata: {
+                    location: 'root',
+                },
+            },
+            {
+                text: [
+                    'plane 2',
+                ],
+                metadata: {
+                    location: 'left',
+                },
+            },
+        ];
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('escapes the plurid plane dividers when they are in the content', () => {
@@ -162,7 +206,8 @@ plane 2
                 metadata: {},
             },
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 
     it('escapes the plurid plane dividers when they are in the content', () => {
@@ -182,6 +227,29 @@ plane 2
                 metadata: {},
             },
         ];
-        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
+    });
+
+    it.only('reads metadata written on the same line', () => {
+        const text = `
+<<< location: root | processor: javascript, math
+plane content
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    'plane content',
+                ],
+                metadata: {
+                    location: 'root',
+                    processor: ['javascript', 'math'],
+                },
+            },
+        ];
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
     });
 });
