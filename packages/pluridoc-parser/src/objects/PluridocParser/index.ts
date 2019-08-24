@@ -4,11 +4,15 @@ import {
 } from '../../interfaces';
 
 import {
-    PLURID_DELIMITER_START,
-    PLURID_DELIMITER_END,
-    PLURID_METADATA_LOCATION,
-    PLURID_METADATA_CONTENT,
-} from '../../constants';
+    pluridPlaneStartRE,
+    pluridPlaneEndRE,
+    metadataLocationRE,
+    metadataContentRE,
+} from '../../data/regex';
+
+import {
+    escapePluridPlaneDividers,
+} from '../../utilities';
 
 
 
@@ -38,8 +42,7 @@ class PluridocParser implements IPluridocParser {
 
         for (const line of lines) {
             let isContent = true;
-            const startRE = new RegExp(`${PLURID_DELIMITER_START}`);
-            const start = startRE.test(line);
+            const start = pluridPlaneStartRE.test(line);
             if (start) {
                 setStart = true;
                 isContent = false;
@@ -50,8 +53,7 @@ class PluridocParser implements IPluridocParser {
                 }
             }
 
-            const endRE = new RegExp(`${PLURID_DELIMITER_END}`);
-            const end = endRE.test(line);
+            const end = pluridPlaneEndRE.test(line);
             if (end) {
                 setStart = false;
                 isContent = false;
@@ -75,54 +77,65 @@ class PluridocParser implements IPluridocParser {
         const planeObjects: any[] = [];
 
         planes.forEach(plane => {
-            const planeObject: Plane = {
-                text: [],
-                metadata: {},
-            }
-
-            let planeStart = false;
-
-            for (const line of plane) {
-                let setStart = false;
-                const startRE = new RegExp(`${PLURID_DELIMITER_START}`);
-                const start = startRE.test(line);
-                if (start) {
-                    setStart = true;
-                    planeStart = true;
-                }
-
-                const endRE = new RegExp(`${PLURID_DELIMITER_END}`);
-                const end = endRE.test(line);
-                if (end) {
-                    planeStart = false;
-                }
-
-                if (planeStart && !setStart) {
-                    planeObject.text.push(line);
-                }
-
-                if (setStart) {
-                    // handle metadata
-                    const metadataLocationRE = new RegExp(`${PLURID_METADATA_LOCATION}(\.+)\\|?`);
-                    const matchLocation = line.match(metadataLocationRE);
-                    if (matchLocation && matchLocation[1]) {
-                        planeObject.metadata.location = matchLocation[1].trim();
-                    }
-
-                    const metadataContentRE = new RegExp(`${PLURID_METADATA_CONTENT}(\.+)\\|?`);
-                    const matchContent = line.match(metadataContentRE);
-                    if (matchContent && matchContent[1]) {
-                        const contentItem = matchContent[1].trim();
-                        const content = [contentItem];
-                        planeObject.metadata.content = content;
-                    }
-                }
-            }
+            const planeObject = this.extractPlaneObject(plane);
             planeObjects.push(planeObject);
         });
 
-        // console.log(planeObjects);
         return planeObjects;
+    }
+
+    private extractPlaneObject = (plane: string[]) => {
+        const planeObject: Plane = {
+            text: [],
+            metadata: {},
+        }
+
+        let planeStart = false;
+
+        for (const line of plane) {
+            let setStart = false;
+            const start = pluridPlaneStartRE.test(line);
+            if (start) {
+                setStart = true;
+                planeStart = true;
+            }
+
+            const end = pluridPlaneEndRE.test(line);
+            if (end) {
+                planeStart = false;
+            }
+
+            if (planeStart && !setStart) {
+                let _line = escapePluridPlaneDividers(line);
+                planeObject.text.push(_line);
+            }
+
+            if (setStart) {
+                // handle metadata
+                const metadata = this.extractPlaneMetadata(line);
+                planeObject.metadata = { ...planeObject.metadata, ...metadata};
+            }
+        }
+
+        return planeObject;
+    }
+
+    private extractPlaneMetadata = (line: string) => {
+        const metadata: any = {};
+
+        const matchLocation = line.match(metadataLocationRE);
+        if (matchLocation && matchLocation[1]) {
+            metadata.location = matchLocation[1].trim();
+        }
+
+        const matchContent = line.match(metadataContentRE);
+        if (matchContent && matchContent[1]) {
+            const contentItem = matchContent[1].trim();
+            const content = [contentItem];
+            metadata.content = content;
+        }
+
+        return metadata;
     }
 }
 
