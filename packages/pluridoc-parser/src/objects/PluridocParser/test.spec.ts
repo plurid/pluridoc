@@ -146,4 +146,42 @@ plane 2
         ];
         expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
     });
+
+    it('escapes the plurid plane dividers when they are in the content', () => {
+        const text = `
+<<<
+\\<<<
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    '<<<'
+                ],
+                metadata: {},
+            },
+        ];
+        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+    });
+
+    it('escapes the plurid plane dividers when they are in the content', () => {
+        const text = `
+<<<
+\\<<<
+\\>>>
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    '<<<',
+                    '>>>'
+                ],
+                metadata: {},
+            },
+        ];
+        expect(pluridoc.getPlanesContent()).toStrictEqual(planesContent);
+    });
 });
