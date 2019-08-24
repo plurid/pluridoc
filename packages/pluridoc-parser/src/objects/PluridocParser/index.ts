@@ -7,7 +7,7 @@ import {
     pluridPlaneStartRE,
     pluridPlaneEndRE,
     metadataLocationRE,
-    metadataContentRE,
+    metadataProcessorRE,
 } from '../../data/regex';
 
 import {
@@ -128,11 +128,11 @@ class PluridocParser implements IPluridocParser {
             metadata.location = matchLocation[1].trim();
         }
 
-        const matchContent = line.match(metadataContentRE);
-        if (matchContent && matchContent[1]) {
-            const contentItem = matchContent[1].trim();
-            const content = [contentItem];
-            metadata.content = content;
+        const matchProcessor = line.match(metadataProcessorRE);
+        if (matchProcessor && matchProcessor[1]) {
+            const processorItems = matchProcessor[1].trim().split(',');
+            const processor = [ ...processorItems.map(item => item.trim()) ];
+            metadata.processor = processor;
         }
 
         return metadata;
