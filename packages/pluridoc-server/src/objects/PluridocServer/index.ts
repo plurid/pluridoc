@@ -15,11 +15,19 @@ import {
 class PluridocServer implements IPluridocServer {
     private server: any;
     private port: number = DEFAULT_PLURID_PORT;
+    private verbose: boolean = false;
 
     constructor(options?: PluridocServerOptions) {
         if (options && options.port) {
-            this.port = options.port;
+            if (options.port) {
+                this.port = options.port;
+            }
+
+            if (options.verbose) {
+                this.verbose = options.verbose;
+            }
         }
+
 
         this.server = http.createServer((req, res) => {
             res.end('works');
@@ -27,12 +35,20 @@ class PluridocServer implements IPluridocServer {
     }
 
     public start() {
-        this.server.listen(this.port, () => {
+        if (this.verbose) {
             console.log(`Server started on port ${this.port}`);
+        }
+
+        this.server.listen(this.port, () => {
+            console.log(`--- Server started on port ${this.port}`);
         });
     }
 
     public stop() {
+        if (this.verbose) {
+            console.log(`Server closed on port ${this.port}`);
+        }
+
         this.server.close();
     }
 }

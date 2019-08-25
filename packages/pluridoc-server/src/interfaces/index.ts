@@ -5,5 +5,6 @@ export interface IPluridocServer {
 
 
 export interface PluridocServerOptions {
-    port: number;
+    port?: number;
+    verbose?: boolean;
 }
