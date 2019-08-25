@@ -144,7 +144,6 @@ class PluridocParser implements IPluridocParser {
         }
 
         const matchTitle = line.match(metadataTitleRE);
-        console.log(matchTitle);
         if (matchTitle && matchTitle[1]) {
             const title = matchTitle[1].trim();
             metadata.title = title;
