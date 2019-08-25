@@ -1,0 +1,12 @@
+<<< location: root
+
+first plane content from example 2
+
+>>>
+
+
+<<< location: left | title: Second Plane
+
+second plane content from example 2
+
+>>>

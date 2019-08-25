@@ -1,5 +1,9 @@
 const PluridocServer = require('@plurid/pluridoc-server');
 
-const pluridocServer = new PluridocServer();
+const options = {
+    verbose: true,
+}
+
+const pluridocServer = new PluridocServer(options);
 
 pluridocServer.start();
