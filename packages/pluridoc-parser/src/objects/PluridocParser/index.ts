@@ -8,6 +8,8 @@ import {
     pluridPlaneEndRE,
     metadataLocationRE,
     metadataProcessorRE,
+    metadataIdRE,
+    metadataTitleRE,
 } from '../../data/regex';
 
 import {
@@ -133,6 +135,19 @@ class PluridocParser implements IPluridocParser {
             const processorItems = matchProcessor[1].trim().split(',');
             const processor = [ ...processorItems.map(item => item.trim()) ];
             metadata.processor = processor;
+        }
+
+        const matchId = line.match(metadataIdRE);
+        if (matchId && matchId[1]) {
+            const id = matchId[1].trim();
+            metadata.id = id;
+        }
+
+        const matchTitle = line.match(metadataTitleRE);
+        console.log(matchTitle);
+        if (matchTitle && matchTitle[1]) {
+            const title = matchTitle[1].trim();
+            metadata.title = title;
         }
 
         return metadata;
