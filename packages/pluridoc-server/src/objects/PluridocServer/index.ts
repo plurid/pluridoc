@@ -41,6 +41,7 @@ class PluridocServer implements IPluridocServer {
 
         this.server.listen(this.port, () => {
             console.log(`--- Server started on port ${this.port}`);
+            console.log(process.cwd());
         });
     }
 
