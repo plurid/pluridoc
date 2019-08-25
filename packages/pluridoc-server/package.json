@@ -30,7 +30,8 @@
         "spec": "jest --coverage",
         "spec:watch": "jest --coverage --watch",
         "spec:prod": "npm run lint && npm run spec -- --no-cache",
-        "report-coverage": "cat ./coverage/lcov.info | coveralls"
+        "report-coverage": "cat ./coverage/lcov.info | coveralls",
+        "prepublishOnly": "yarn build"
     },
     "jest": {
         "transform": {
