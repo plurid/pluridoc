@@ -1,4 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
+// import builtins from 'rollup-plugin-node-builtins';
+// import globals from 'rollup-plugin-node-globals';
 import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import camelCase from 'lodash.camelcase';
@@ -26,14 +28,24 @@ export default {
     plugins: [
         // Allow json resolution
         json(),
+
         // Compile TypeScript files
-        typescript({ useTsconfigDeclarationDir: true }),
-        // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
-        commonjs(),
+        typescript({
+            useTsconfigDeclarationDir: true
+        }),
+
         // Allow node_modules resolution, so you can use 'external' to control
         // which external modules to include in the bundle
         // https://github.com/rollup/rollup-plugin-node-resolve#usage
-        resolve(),
+        resolve({
+            preferBuiltins: true,
+        }),
+
+        // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
+        commonjs(),
+
+        // globals(),
+        // builtins(),
 
         // Resolve source maps to the original source
         sourceMaps(),
