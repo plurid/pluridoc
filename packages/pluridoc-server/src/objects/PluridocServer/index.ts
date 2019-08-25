@@ -1,6 +1,6 @@
-import * as http from 'http';
-import * as fs from 'fs';
-import * as path from 'path';
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
 
 import PluridocParser from '@plurid/pluridoc-parser';
 
