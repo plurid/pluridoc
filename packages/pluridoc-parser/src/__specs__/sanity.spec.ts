@@ -1,11 +1,11 @@
-import PluridocParser from '../src';
+import PluridocParser from '../';
 
 
 
 /**
 * Pluridoc Parser sanity test
 */
-xdescribe('Pluridoc Parser sanity test', () => {
+describe('Pluridoc Parser sanity test', () => {
     it('works if true is truthy', () => {
         expect(true).toBeTruthy();
     });
