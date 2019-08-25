@@ -1,4 +1,8 @@
 import * as http from 'http';
+import * as fs from 'fs';
+import * as path from 'path';
+
+import PluridocParser from '@plurid/pluridoc-parser';
 
 import {
     IPluridocServer,
@@ -7,6 +11,8 @@ import {
 
 import {
     DEFAULT_PLURID_PORT,
+    PLURID_EXTENSION,
+    PLURIDOC_EXTENSION,
 } from '../../constants';
 
 
@@ -28,7 +34,6 @@ class PluridocServer implements IPluridocServer {
             }
         }
 
-
         this.server = http.createServer((req, res) => {
             res.end('works');
         });
@@ -42,6 +47,20 @@ class PluridocServer implements IPluridocServer {
         this.server.listen(this.port, () => {
             console.log(`--- Server started on port ${this.port}`);
             console.log(process.cwd());
+            fs.readdirSync(process.cwd()).forEach(file => {
+                const extension = path.extname(file);
+                if (
+                    extension === PLURID_EXTENSION
+                    || extension === PLURIDOC_EXTENSION
+                ) {
+                    const text = fs.readFileSync(file, 'utf8');
+                    const pluridocParser = new PluridocParser(text);
+                    console.log('file', file);
+                    console.log('text', text);
+                    console.log('parsed:');
+                    console.log(pluridocParser.getPlanesContent());
+                }
+            });
         });
     }
 
