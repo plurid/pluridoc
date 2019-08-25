@@ -1,4 +1,4 @@
-import PluridocParser from './';
+import PluridocParser from '../';
 
 
 
@@ -231,7 +231,7 @@ plane 2
         expect(result).toStrictEqual(planesContent);
     });
 
-    it.only('reads metadata written on the same line', () => {
+    it('reads metadata written on the same line', () => {
         const text = `
 <<< location: root | processor: javascript, math
 plane content
@@ -246,6 +246,73 @@ plane content
                 metadata: {
                     location: 'root',
                     processor: ['javascript', 'math'],
+                },
+            },
+        ];
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
+    });
+
+    it('reads metadata id and title', () => {
+        const text = `
+<<< id: 123 | title: Page One
+plane content
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    'plane content',
+                ],
+                metadata: {
+                    id: '123',
+                    title: 'Page One',
+                },
+            },
+        ];
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
+    });
+
+    it('reads metadata id and title', () => {
+        const text = `
+<<< id: 123
+<<< title: Page One
+plane content
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    'plane content',
+                ],
+                metadata: {
+                    id: '123',
+                    title: 'Page One',
+                },
+            },
+        ];
+        const result = pluridoc.getPlanesContent();
+        expect(result).toStrictEqual(planesContent);
+    });
+
+    it('reads metadata id and title', () => {
+        const text = `
+<<< title: Page One | id: 123
+plane content
+>>>
+        `;
+        const pluridoc = new PluridocParser(text);
+        const planesContent = [
+            {
+                text: [
+                    'plane content',
+                ],
+                metadata: {
+                    id: '123',
+                    title: 'Page One',
                 },
             },
         ];
