@@ -121,3 +121,17 @@ to be able to do:
 
 and to get a folder name 'file' with index.js and all the containing planes as files
 
+
+
+linking requires an ', a pair of brackets [] with the link content,
+and a pair of paranthesis () with the id or title of the linked plurid plane
+
+<<<
+
+plurid content
+
+plurid content '[link](id: 123) plurid content
+
+plurid content '[link](title: 123) plurid content
+
+>>>
