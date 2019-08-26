@@ -65,24 +65,30 @@ class PluridocServer implements IPluridocServer {
     }
 
     private handleFiles (req: any, res: any) {
-        fs.readdirSync(process.cwd()).forEach(file => {
-            const extension = path.extname(file);
-            if (
-                extension === PLURID_EXTENSION
-                || extension === PLURIDOC_EXTENSION
-            ) {
-                const text = fs.readFileSync(file, 'utf8');
+        const requestedFile = req.url;
+        const requestedFilePath = process.cwd() + requestedFile;
+        console.log('requestedFilePath', requestedFilePath);
+
+        const extension = path.extname(requestedFile);
+
+        if (
+            extension !== PLURID_EXTENSION
+            && extension !== PLURIDOC_EXTENSION
+        ) {
+            res.end('open a file');
+            return;
+        }
+
+        try {
+            if (fs.existsSync(requestedFilePath)) {
+                const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
-                if (req.url === '/' + file) {
-                    console.log(content);
-                    console.log(file);
-                    res.end(content[0].text[1]);
-                }
+                res.end(content[0].text[1]);
             }
-        });
-
-        res.end('open a file');
+        } catch(error) {
+            res.end('open a file');
+        }
     }
 }
 
