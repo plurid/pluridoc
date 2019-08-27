@@ -20,16 +20,17 @@ const App: React.FC<AppOwnProperties> = (properties) => {
 
                 return (
                     <div
-                        key={Math.random()*100 + ''}
+                        key={Math.random()*10000 + ''}
                         className="plurid-plane"
                     >
                         {
                             text.map((txt: any) => {
                                 return (
-                                    <>
+                                    <p
+                                        key={Math.random()*10000 + ''}
+                                    >
                                         {txt}
-                                        <br />
-                                    </>
+                                    </p>
                                 );
                             })
                         }
