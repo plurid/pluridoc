@@ -25,7 +25,8 @@
     "scripts": {
         "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
         "prebuild": "rimraf dist",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
+        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src && yarn build.removeSpecs",
+        "build.removeSpecs": "rm -rf `find ./dist/ -type d -name __specs__`",
         "start": "rollup -c rollup.config.ts -w",
         "spec": "jest --coverage",
         "spec:watch": "jest --coverage --watch",
@@ -38,7 +39,7 @@
             ".(ts|tsx)": "ts-jest"
         },
         "testEnvironment": "node",
-        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+        "testRegex": "(/__specs__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
         "moduleFileExtensions": [
             "ts",
             "tsx",
@@ -46,6 +47,7 @@
         ],
         "coveragePathIgnorePatterns": [
             "/node_modules/",
+            "/dist/",
             "/test/"
         ],
         "coverageThreshold": {
