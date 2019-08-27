@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import PluridocParser from '@plurid/pluridoc-parser';
+import PluridocApp from '@plurid/pluridoc-app';
 
 import {
     IPluridocServer,
@@ -89,10 +90,11 @@ class PluridocServer implements IPluridocServer {
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
                 console.log(content);
-                res.end(content[0].text[1]);
+                // res.end(content[0].text[1]);
 
-                // const pluridAppHTML = PluridApp.render(content);
-                // res.end(pluridAppHTML);
+                const pluridocApp = new PluridocApp(content);
+                const pluridocAppHTML = pluridocApp.render();
+                res.end(pluridocAppHTML);
             }
         } catch(error) {
             res.end('open a file');

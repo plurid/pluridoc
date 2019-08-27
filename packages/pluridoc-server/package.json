@@ -61,6 +61,7 @@
         ]
     },
     "dependencies": {
+        "@plurid/pluridoc-app": "*",
         "@plurid/pluridoc-parser": "*"
     },
     "devDependencies": {
