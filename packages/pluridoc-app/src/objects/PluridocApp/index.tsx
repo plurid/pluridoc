@@ -11,31 +11,28 @@ import {
 
 class PluridocApp implements IPluridocApp {
     private content: any;
+    private filename: string;
 
-    constructor(content: any) {
+    constructor(content: any, filename: string) {
         this.content = content;
+        this.filename = filename;
     }
 
     render () {
-        const html = ReactDOM.renderToString(<App content={this.content} />);
-        return html;
-
-        // let content = '';
-        // this.content.map((plane: any) => {
-        //     let text = '';
-        //     plane.text.map((textData: any) => {
-        //         text += `<p>${textData}</p>`;
-        //     });
-        //     content += `<p>${text}</p>`;
-        // });
-
-        // return `
-        //     <html>
-        //         <div>
-        //             ${content}
-        //         </div>
-        //     </html>
-        // `;
+        const appHTML = ReactDOM.renderToString(<App content={this.content} />);
+        const title = this.filename.slice(1,);
+        return `
+            <html>
+                <head>
+                    <title>${title}</title>
+                </head>
+                <body>
+                    <div>
+                        ${appHTML}
+                    </div>
+                </body>
+            </html>
+        `;
     }
 }
 
