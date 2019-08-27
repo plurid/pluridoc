@@ -76,6 +76,10 @@ class PluridocServer implements IPluridocServer {
             && extension !== PLURIDOC_EXTENSION
         ) {
             res.end('open a file');
+
+            // const pluridAppHTML = PluridApp.render({});
+            // res.end(pluridAppHTML);
+
             return;
         }
 
@@ -84,10 +88,17 @@ class PluridocServer implements IPluridocServer {
                 const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
+                console.log(content);
                 res.end(content[0].text[1]);
+
+                // const pluridAppHTML = PluridApp.render(content);
+                // res.end(pluridAppHTML);
             }
         } catch(error) {
             res.end('open a file');
+
+            // const pluridAppHTML = PluridApp.render({});
+            // res.end(pluridAppHTML);
         }
     }
 }
