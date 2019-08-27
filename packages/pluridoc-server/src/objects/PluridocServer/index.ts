@@ -92,7 +92,7 @@ class PluridocServer implements IPluridocServer {
                 console.log(content);
                 // res.end(content[0].text[1]);
 
-                const pluridocApp = new PluridocApp(content);
+                const pluridocApp = new PluridocApp(content, requestedFile);
                 const pluridocAppHTML = pluridocApp.render();
                 res.end(pluridocAppHTML);
             }
