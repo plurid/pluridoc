@@ -38,6 +38,7 @@ class PluridocApp implements IPluridocApp {
                     <!-- injected pluridoc-app scripts -->
                     <script>
                         console.log('works');
+                        window.__PLURIDOC_CONTENT__ = ${JSON.stringify(this.content)}
                     </script>
                 </head>
                 <body>

@@ -7,8 +7,6 @@ import App from './App';
 
 const pluridocApp = document.getElementById('pluridoc-app');
 
-ReactDOM.hydrate(<App content={{ text: [ 'aaa', 'plane content', 'bbb' ], metadata: {} }} />, pluridocApp);
+const content = (window as any).__PLURIDOC_CONTENT__;
 
-
-console.log('client log');
-console.log('pluridocContent', (window as any).pluridocContent);
+ReactDOM.hydrate(<App content={content} />, pluridocApp);
