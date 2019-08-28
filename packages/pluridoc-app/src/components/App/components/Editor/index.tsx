@@ -21,16 +21,6 @@ const initialValue = Value.fromJSON({
                     },
                 ],
             },
-            {
-                object: 'block',
-                type: 'paragraph',
-                nodes: [
-                    {
-                        object: 'text',
-                        text: 'plane content',
-                    },
-                ],
-            },
         ],
     },
 });
@@ -45,7 +35,7 @@ const Editor: React.FC<any> = (properties) => {
 
     useEffect(() => {
         const value: any = parseValueFromContent(content);
-        console.log('aaa', value);
+        console.log('value use effect', value);
         setValue(value);
     }, [content]);
 
@@ -53,10 +43,9 @@ const Editor: React.FC<any> = (properties) => {
         const nodes: any[] = [];
 
         for (const contentItem of content.entries()) {
-            console.log(contentItem);
+            console.log('contentItem', contentItem);
 
             for (const text of contentItem.text.entries()) {
-                console.log(TextEncoderStream);
                 const textNode = {
                     object: 'block',
                     type: 'paragraph',
@@ -83,20 +72,14 @@ const Editor: React.FC<any> = (properties) => {
         };
 
         console.log('value', value);
-
         return value;
     }
-
-    // const initialValue: any = parseValueFromContent(content);
-    // const [value, setValue] = useState(Value.fromJSON(initialValue));
-
 
     const onChange = ({ value }: any) => {
         const content = JSON.stringify(value.toJSON())
         localStorage.setItem('content', content)
 
-        console.log('value new', value);
-
+        console.log('new value', value);
         setValue(value);
     }
 
