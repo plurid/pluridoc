@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 
 import App from '../../components/App';
 
 import {
     IPluridocApp,
 } from '../../interfaces';
+
 
 
 
@@ -19,15 +20,19 @@ class PluridocApp implements IPluridocApp {
     }
 
     render () {
-        const appHTML = ReactDOM.renderToString(<App content={this.content} />);
+        const appHTML = ReactDOMServer.renderToString(<App content={this.content} />);
         const title = this.filename.slice(1,);
+
         return `
             <html>
                 <head>
                     <title>${title}</title>
+                    <script>
+                        console.log('works');
+                    </script>
                 </head>
                 <body>
-                    <div>
+                    <div id="plurid-app">
                         ${appHTML}
                     </div>
                 </body>
