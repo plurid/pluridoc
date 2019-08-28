@@ -11,7 +11,7 @@ describe('Pluridoc App sanity test', () => {
     });
 
     it('PluridocApp is instantiable', () => {
-        expect(new PluridocApp({}))
+        expect(new PluridocApp({}, ''))
             .toBeInstanceOf(PluridocApp);
     });
 });

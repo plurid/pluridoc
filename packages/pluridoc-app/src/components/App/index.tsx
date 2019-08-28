@@ -1,5 +1,8 @@
 import React from 'react';
 
+// import './styles.css';
+
+import Editor from './components/Editor';
 
 
 interface AppOwnProperties {
@@ -13,7 +16,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
 
     return (
         <div>
-            {content.map((itemContent: any) => {
+            {/* {content.map((itemContent: any) => {
                 const {
                     text,
                 } = itemContent;
@@ -36,7 +39,11 @@ const App: React.FC<AppOwnProperties> = (properties) => {
                         }
                     </div>
                 );
-            })}
+            })} */}
+
+            <Editor
+                content={content}
+            />
         </div>
     );
 }

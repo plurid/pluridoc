@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 // import builtins from 'rollup-plugin-node-builtins';
 // import globals from 'rollup-plugin-node-globals';
+import external from 'rollup-plugin-peer-deps-external';
 import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import camelCase from 'lodash.camelcase';
@@ -13,12 +14,30 @@ const pkg = require('./package.json');
 
 const libraryName = 'pluridoc-app';
 
+const globals = {
+    'react': 'React',
+    'react-dom/server': 'ReactDOM',
+    'slate': 'slate',
+    'slate-react': 'slateReact',
+};
+
 
 export default {
     input: `src/index.ts`,
     output: [
-        { file: pkg.main, name: camelCase(libraryName), format: 'umd', sourcemap: true },
-        { file: pkg.module, format: 'es', sourcemap: true },
+        {
+            file: pkg.main,
+            name: camelCase(libraryName),
+            format: 'umd',
+            globals,
+            sourcemap: true,
+        },
+        {
+            file: pkg.module,
+            format: 'es',
+            globals,
+            sourcemap: true,
+        },
     ],
     // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
     external: [],
@@ -34,6 +53,10 @@ export default {
             useTsconfigDeclarationDir: true
         }),
 
+        external({
+            includeDependencies: true,
+        }),
+
         // Allow node_modules resolution, so you can use 'external' to control
         // which external modules to include in the bundle
         // https://github.com/rollup/rollup-plugin-node-resolve#usage
@@ -42,7 +65,9 @@ export default {
         }),
 
         // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
-        commonjs(),
+        commonjs({
+            include: 'node_modules/**'
+        }),
 
         // globals(),
         // builtins(),
