@@ -23,16 +23,19 @@ class PluridocApp implements IPluridocApp {
         const appHTML = ReactDOMServer.renderToString(<App content={this.content} />);
         const title = this.filename.slice(1,);
 
+        // compile the client-side application as a javascript file and import it into the html template
+
         return `
             <html>
                 <head>
                     <title>${title}</title>
+                    <!-- injected pluridoc-app scripts -->
                     <script>
                         console.log('works');
                     </script>
                 </head>
                 <body>
-                    <div id="plurid-app">
+                    <div id="pluridoc-app">
                         ${appHTML}
                     </div>
                 </body>
