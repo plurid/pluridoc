@@ -32,7 +32,8 @@
         "spec:watch": "jest --coverage --watch",
         "spec:prod": "npm run lint && npm run spec -- --no-cache",
         "report-coverage": "cat ./coverage/lcov.info | coveralls",
-        "prepublishOnly": "yarn build"
+        "prepublishOnly": "yarn build",
+        "webpack": "webpack --config webpack.config.js"
     },
     "jest": {
         "transform": {
@@ -67,9 +68,12 @@
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "slate": "^0.47.8",
-        "slate-react": "^0.22.8"
+        "slate-react": "^0.22.8",
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.7"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.0.0",
         "@types/jest": "^24.0.18",
         "@types/node": "^12.7.2",
         "@types/react": "^16.9.2",
@@ -95,6 +99,7 @@
         "rollup-plugin-typescript2": "^0.23.0",
         "shelljs": "^0.8.3",
         "ts-jest": "^24.0.2",
+        "ts-loader": "^6.0.4",
         "ts-node": "^8.3.0",
         "tslint": "^5.19.0",
         "tslint-config-standard": "^8.0.1",
