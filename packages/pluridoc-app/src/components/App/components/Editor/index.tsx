@@ -17,7 +17,7 @@ const initialValue = Value.fromJSON({
                 nodes: [
                     {
                         object: 'text',
-                        text: '',
+                        text: 'text',
                     },
                 ],
             },
@@ -34,25 +34,24 @@ const Editor: React.FC<any> = (properties) => {
     } = properties;
 
     useEffect(() => {
+        console.log(content);
         const value: any = parseValueFromContent(content);
         console.log('value use effect', value);
-        setValue(Value.fromJSON(value));
+        setValue(Value.fromJSON({...value}));
     }, [content]);
 
     const parseValueFromContent = (content: any) => {
         const nodes: any[] = [];
 
-        for (const contentItem of content.entries()) {
-            console.log('contentItem', contentItem);
-
-            for (const text of contentItem.text.entries()) {
+        for (let i = 0; i < content.length; i++) {
+            for (let j = 0; j < content[i].text.length; j++) {
                 const textNode = {
                     object: 'block',
                     type: 'paragraph',
                     nodes: [
                         {
                             object: 'text',
-                            text,
+                            text: content[i].text[j],
                         },
                     ],
                 };
@@ -61,23 +60,37 @@ const Editor: React.FC<any> = (properties) => {
             }
         }
 
+        // for (const contentItem of content.entries()) {
+        //     console.log('contentItem', contentItem);
+
+        //     for (const text of contentItem.text.entries()) {
+        //         const textNode = {
+        //             object: 'block',
+        //             type: 'paragraph',
+        //             nodes: [
+        //                 {
+        //                     object: 'text',
+        //                     text,
+        //                 },
+        //             ],
+        //         };
+
+        //         nodes.push(textNode);
+        //     }
+        // }
+
         const value = {
             document: {
-                nodes: {
-                    object: 'block',
-                    type: 'paragraph',
-                    nodes,
-                },
+                nodes,
             },
         };
 
-        console.log('value', value);
         return value;
     }
 
     const onChange = ({ value }: any) => {
-        const content = JSON.stringify(value.toJSON())
-        localStorage.setItem('content', content)
+        // const content = JSON.stringify(value.toJSON())
+        // localStorage.setItem('content', content)
 
         console.log('new value', value);
         setValue(value);
