@@ -36,7 +36,7 @@ const Editor: React.FC<any> = (properties) => {
     useEffect(() => {
         const value: any = parseValueFromContent(content);
         console.log('value use effect', value);
-        setValue(value);
+        setValue(Value.fromJSON(value));
     }, [content]);
 
     const parseValueFromContent = (content: any) => {
