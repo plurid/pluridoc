@@ -11,44 +11,26 @@ import { Value } from 'slate';
 const initialValue = Value.fromJSON({
     document: {
         nodes: [
-            // {
-            //     object: 'block',
-            //     type: 'paragraph',
-            //     nodes: [
-            //         {
-            //             object: 'text',
-            //             text: '',
-            //         },
-            //     ],
-            // },
             {
                 object: 'block',
                 type: 'paragraph',
                 nodes: [
                     {
                         object: 'text',
-                        text: 'AAA',
+                        text: '',
                     },
+                ],
+            },
+            {
+                object: 'block',
+                type: 'paragraph',
+                nodes: [
                     {
                         object: 'text',
                         text: 'plane content',
                     },
-                    {
-                        object: 'text',
-                        text: 'bbb',
-                    },
                 ],
             },
-            // {
-            //     object: 'block',
-            //     type: 'paragraph',
-            //     nodes: [
-            //         {
-            //             object: 'text',
-            //             text: '',
-            //         },
-            //     ],
-            // },
         ],
     },
 });
@@ -61,11 +43,11 @@ const Editor: React.FC<any> = (properties) => {
         content,
     } = properties;
 
-    // useEffect(() => {
-    //     const value: any = parseValueFromContent(content);
-    //     console.log('aaa', value);
-    //     setValue(value);
-    // }, [content]);
+    useEffect(() => {
+        const value: any = parseValueFromContent(content);
+        console.log('aaa', value);
+        setValue(value);
+    }, [content]);
 
     const parseValueFromContent = (content: any) => {
         const nodes: any[] = [];
