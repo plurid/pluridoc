@@ -22,6 +22,10 @@ import {
 } from '../../constants';
 
 import {
+    ioConnections,
+} from '../../enumerations';
+
+import {
     defaultServerStartOptions,
 } from '../../data';
 
@@ -190,8 +194,20 @@ class PluridocServer implements IPluridocServer {
 
     private handleConnections () {
         this.io.on('connection', (socket: any) => {
-            socket.on('writing', (msg: any) => {
+            socket.on(ioConnections.FILE_WRITE, (msg: any) => {
+                // given the filename and planeId
+                // modify document
                 console.log(msg);
+            });
+
+            socket.on(ioConnections.NEW_PLURID, async (filename: string) => {
+                console.log('create new plurid', filename);
+                await this.newPlurid(filename);
+            });
+
+            socket.on(ioConnections.NEW_PLURIDOC, async (filename: string) => {
+                console.log('create new pluridoc', filename);
+                await this.newPluridoc(filename);
             });
         });
     }
