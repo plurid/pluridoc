@@ -1,11 +1,13 @@
 import program from 'commander';
 
-// import PluridocCLI from './objects/PluridocCLI';
 import PluridocServer from '@plurid/pluridoc-server';
 
 
 
-const pluridocServer = new PluridocServer();
+const serverOptions = {
+    verbose: true,
+}
+const pluridocServer = new PluridocServer(serverOptions);
 
 
 program
@@ -17,14 +19,13 @@ program
 
 
 if (process.argv.length === 2) {
-    console.log('start server');
     pluridocServer.start();
 }
 
 if (program.plurid) {
-    console.log('start server - create new .plurid');
+    pluridocServer.newPlurid();
 }
 
 if (program.pluridoc) {
-    console.log('start server - create new .pluridoc');
+    pluridocServer.newPluridoc();
 }

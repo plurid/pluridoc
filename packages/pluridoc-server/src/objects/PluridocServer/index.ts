@@ -47,7 +47,7 @@ class PluridocServer implements IPluridocServer {
         }
 
         this.server = http.createServer((req, res) => {
-            console.log('request arrived for', req.url);
+            // console.log('request arrived for', req.url);
 
             if (req.url === '/favicon.ico') {
                 res.writeHead(200, {'Content-Type': 'image/x-icon'} );
@@ -81,10 +81,24 @@ class PluridocServer implements IPluridocServer {
         this.server.close();
     }
 
+    public newPlurid (filename: string = 'newplurid') {
+        fs.writeFileSync(`${filename}.plurid`, '');
+        if (this.verbose) {
+            console.log(`Created new .plurid file: ${filename}`);
+        }
+    }
+
+    public newPluridoc (filename: string = 'newpluridoc') {
+        fs.writeFileSync(`${filename}.pluridoc`, '');
+        if (this.verbose) {
+            console.log(`Created new .pluridoc file: ${filename}`);
+        }
+    }
+
     private handleFiles (req: any, res: any) {
         const requestedFile = req.url;
         const requestedFilePath = process.cwd() + requestedFile;
-        console.log('requestedFilePath', requestedFilePath);
+        // console.log('requestedFilePath', requestedFilePath);
 
         const extension = path.extname(requestedFile);
 
@@ -105,7 +119,7 @@ class PluridocServer implements IPluridocServer {
                 const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
-                console.log(content);
+                // console.log(content);
                 // res.end(content[0].text[1]);
 
                 const pluridocApp = new PluridocApp(content, requestedFile);
@@ -114,7 +128,7 @@ class PluridocServer implements IPluridocServer {
                 res.end(pluridocAppHTML);
             }
         } catch(error) {
-            console.log(error);
+            // console.log(error);
             res.end('open a file');
 
             // const pluridAppHTML = PluridApp.render({});

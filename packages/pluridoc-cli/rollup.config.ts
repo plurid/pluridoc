@@ -15,11 +15,6 @@ const pkg = require('./package.json');
 const libraryName = 'pluridoc-cli';
 
 const globals = {
-    'http': 'http',
-    'fs': 'fs',
-    'path': 'path',
-    '@plurid/pluridoc-parser': 'PluridParser',
-    '@plurid/pluridoc-app': 'PluridApp',
 };
 
 
