@@ -11,6 +11,10 @@
     pluridoc
 </h1>
 
++ [General](#general)
++ [Usage](#usage)
++ [Packages](#packages)
+
 
 
 ## General
