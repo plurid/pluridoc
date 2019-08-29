@@ -14,7 +14,7 @@
         "dist"
     ],
     "bin": {
-        "pluridoc": "dist/pluridoc-cli.umd.js"
+        "pluridoc": "bin/pluridoc"
     },
     "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com/)",
     "repository": {
