@@ -18,7 +18,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
         files,
     } = properties;
 
-    if (content === {}) {
+    if (content === []) {
         return (
             <Dashboard
                 files={files}

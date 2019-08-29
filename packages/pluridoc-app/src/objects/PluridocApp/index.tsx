@@ -1,11 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-// import React from 'react';
-// import ReactDOMServer from 'react-dom/server';
-
-// import App from '../../components/App';
-
 import {
     IPluridocApp,
 } from '../../interfaces';
@@ -14,11 +9,11 @@ import {
 
 
 class PluridocApp implements IPluridocApp {
-    private content: any;
+    private content: any[];
     private filename: string;
     private files: string[];
 
-    constructor(content: any = {}, filename: string = '', files: string[] = []) {
+    constructor(content: any[] = [], filename: string = '', files: string[] = []) {
         this.content = content;
         this.filename = filename;
         this.files = files;
