@@ -92,55 +92,55 @@ class PluridocServer implements IPluridocServer {
         this.server.close();
     }
 
-    public newPlurid (filename: string = 'newplurid') {
+    public async newPlurid (filename: string = 'newplurid') {
         const file = filename + PLURID_EXTENSION;
 
         if (fs.existsSync(file)) {
             if (this.verbose) {
-                console.log(`\tCould not Create a New ${PLURID_EXTENSION} File: ${filename} Already Exists.`);
+                console.log(`\n\tCould not Create a New ${PLURID_EXTENSION} File: ${file} Already Exists.\n`);
             }
             return;
         }
-
-        fs.writeFileSync(file, '');
 
         if (!this.server.address()) {
             const options: PluridocServerStartOptions = {
                 open: false,
             };
-            this.start(options);
+            await this.start(options);
         }
+
+        fs.writeFileSync(file, '');
 
         const filelink = `http://localhost:${this.port}/${file}`;
         if (this.verbose) {
-            console.log(`\tCreated a New ${PLURID_EXTENSION} File: ${filename}`);
+            console.log(`\tCreated a New ${PLURID_EXTENSION} File: ${file}`);
             console.log(`\tOpen ${filelink}\n`);
         }
         open(filelink);
     }
 
-    public newPluridoc (filename: string = 'newpluridoc') {
+    public async newPluridoc (filename: string = 'newpluridoc') {
         const file = filename + PLURIDOC_EXTENSION;
 
         if (fs.existsSync(file)) {
             if (this.verbose) {
-                console.log(`\tCould not Create a New ${PLURIDOC_EXTENSION} File: ${filename} Already Exists.`);
+                console.log(`\n\tCould not Create a New ${PLURIDOC_EXTENSION} File: ${file} Already Exists.\n`);
             }
             return;
         }
-
-        fs.writeFileSync(file, '');
 
         if (!this.server.address()) {
             const options: PluridocServerStartOptions = {
                 open: false,
             };
-            this.start(options);
+            await this.start(options);
         }
+
+        fs.writeFileSync(file, '');
 
         const filelink = `http://localhost:${this.port}/${file}`;
         if (this.verbose) {
-            console.log(`\tCreated a New ${PLURIDOC_EXTENSION} File: ${filename}`);
+            console.log(`\tCreated a New ${PLURIDOC_EXTENSION} File: ${file}`);
             console.log(`\tOpen ${filelink}\n`);
         }
 
