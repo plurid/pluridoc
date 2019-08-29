@@ -98,21 +98,40 @@ and run
 ## Packages
 
 
-[@plurid/pluridoc-app][pluridoc-app] - the pluridoc application
+<a target="_blank" href="https://www.npmjs.com/package/@plurid/pluridoc-app">
+    <img src="https://img.shields.io/npm/v/@plurid/pluridoc-app.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
+</a>
+
+[@plurid/pluridoc-app][pluridoc-app] • the pluridoc application
 
 [pluridoc-app]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-app
 
 
-[@plurid/pluridoc-cli][pluridoc-cli] - the pluridoc command line interface
+
+<a target="_blank" href="https://www.npmjs.com/package/@plurid/pluridoc-cli">
+    <img src="https://img.shields.io/npm/v/@plurid/pluridoc-cli.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
+</a>
+
+[@plurid/pluridoc-cli][pluridoc-cli] • the pluridoc command line interface
 
 [pluridoc-cli]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-cli
 
 
-[@plurid/pluridoc-parser][pluridoc-parser] - the pluridoc parser
+
+<a target="_blank" href="https://www.npmjs.com/package/@plurid/pluridoc-parser">
+    <img src="https://img.shields.io/npm/v/@plurid/pluridoc-parser.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
+</a>
+
+[@plurid/pluridoc-parser][pluridoc-parser] • the pluridoc parser
 
 [pluridoc-parser]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-parser
 
 
-[@plurid/pluridoc-server][pluridoc-server] - the pluridoc server
+
+<a target="_blank" href="https://www.npmjs.com/package/@plurid/pluridoc-server">
+    <img src="https://img.shields.io/npm/v/@plurid/pluridoc-server.svg?logo=npm&colorB=1380C3&style=for-the-badge" alt="Version">
+</a>
+
+[@plurid/pluridoc-server][pluridoc-server] • the pluridoc server
 
 [pluridoc-server]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-server
