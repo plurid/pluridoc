@@ -10,3 +10,8 @@ export interface PluridocServerOptions {
     port?: number;
     verbose?: boolean;
 }
+
+
+export interface PluridocServerStartOptions {
+    open: boolean;
+}
