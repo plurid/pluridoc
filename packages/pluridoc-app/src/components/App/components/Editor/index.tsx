@@ -1,6 +1,5 @@
 import React, {
     useState,
-    useEffect,
 } from 'react';
 
 import { Editor as SlateEditor } from 'slate-react';
@@ -44,12 +43,15 @@ const Editor: React.FC<any> = (properties) => {
 
     const [value, setValue] = useState(Value.fromJSON({...initialValue}));
 
-    const onChange = ({ value }: any) => {
-        // const content = JSON.stringify(value.toJSON())
+    const onChange = (props: any) => {
+        const content = JSON.stringify(props.value.toJSON());
+        const jsonValue = JSON.stringify(value.toJSON());
+        console.log(content);
+        console.log(jsonValue);
         // localStorage.setItem('content', content)
 
         console.log('new value', value);
-        setValue(value);
+        setValue(props.value);
     }
 
     return (
