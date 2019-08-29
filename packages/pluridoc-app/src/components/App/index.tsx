@@ -8,7 +8,7 @@ import File from './containers/File';
 
 
 interface AppOwnProperties {
-    content: any;
+    content: any[];
     files: any;
 }
 
@@ -18,7 +18,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
         files,
     } = properties;
 
-    if (content === []) {
+    if (content.length === 0) {
         return (
             <Dashboard
                 files={files}
