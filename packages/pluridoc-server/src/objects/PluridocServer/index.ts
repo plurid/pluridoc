@@ -162,11 +162,9 @@ class PluridocServer implements IPluridocServer {
             extension !== PLURID_EXTENSION
             && extension !== PLURIDOC_EXTENSION
         ) {
-            res.end('open a file');
-
-            // const pluridAppHTML = PluridApp.render({});
-            // res.end(pluridAppHTML);
-
+            const pluridocApp = new PluridocApp({}, '', ['a', 'b']);
+            const pluridocAppHTML = pluridocApp.render();
+            res.end(pluridocAppHTML);
             return;
         }
 
@@ -175,20 +173,16 @@ class PluridocServer implements IPluridocServer {
                 const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
-                // console.log(content);
-                // res.end(content[0].text[1]);
 
                 const pluridocApp = new PluridocApp(content, requestedFile);
                 const pluridocAppHTML = pluridocApp.render();
-                // console.log(pluridocAppHTML);
                 res.end(pluridocAppHTML);
             }
         } catch(error) {
             // console.log(error);
-            res.end('open a file');
-
-            // const pluridAppHTML = PluridApp.render({});
-            // res.end(pluridAppHTML);
+            const pluridocApp = new PluridocApp({}, '');
+            const pluridocAppHTML = pluridocApp.render();
+            res.end(pluridocAppHTML);
         }
     }
 
