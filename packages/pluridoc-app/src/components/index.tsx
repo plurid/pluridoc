@@ -8,6 +8,12 @@ import App from './App';
 const pluridocApp = document.getElementById('pluridoc-app');
 
 const content = (window as any).__PLURIDOC_CONTENT__;
+const files = (window as any).__PLURIDOC_FILES__;
 
-// ReactDOM.hydrate(<App content={content} />, pluridocApp);
-ReactDOM.render(<App content={content} />, pluridocApp);
+ReactDOM.render(
+    <App
+        content={content}
+        files={files}
+    />,
+    pluridocApp
+);
