@@ -9,4 +9,5 @@ const pluridocApp = document.getElementById('pluridoc-app');
 
 const content = (window as any).__PLURIDOC_CONTENT__;
 
-ReactDOM.hydrate(<App content={content} />, pluridocApp);
+// ReactDOM.hydrate(<App content={content} />, pluridocApp);
+ReactDOM.render(<App content={content} />, pluridocApp);

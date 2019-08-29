@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+// import React from 'react';
+// import ReactDOMServer from 'react-dom/server';
 
-import App from '../../components/App';
+// import App from '../../components/App';
 
 import {
     IPluridocApp,
@@ -23,7 +23,7 @@ class PluridocApp implements IPluridocApp {
     }
 
     render () {
-        const appHTML = ReactDOMServer.renderToString(<App content={this.content} />);
+        // const appHTML = ReactDOMServer.renderToString(<App content={this.content} />);
         const title = this.filename.slice(1,);
 
         const clientScriptPath = path.join(__dirname, '../src/client/main.js');
@@ -42,7 +42,7 @@ class PluridocApp implements IPluridocApp {
                     </script>
                 </head>
                 <body>
-                    <div id="pluridoc-app">${appHTML}</div>
+                    <div id="pluridoc-app"></div>
                     <script>
                         ${clientScript}
                     </script>
