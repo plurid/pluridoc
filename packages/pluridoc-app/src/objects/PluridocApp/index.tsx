@@ -40,6 +40,7 @@ class PluridocApp implements IPluridocApp {
                         console.log('works');
                         window.__PLURIDOC_CONTENT__ = ${JSON.stringify(this.content)}
                     </script>
+                    <script src="/socket.io/socket.io.js"></script>
                 </head>
                 <body>
                     <div id="pluridoc-app"></div>

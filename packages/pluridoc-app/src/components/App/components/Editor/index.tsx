@@ -7,7 +7,10 @@ import { Value } from 'slate';
 
 
 
+
 const Editor: React.FC<any> = (properties) => {
+    const socket = io();
+
     const {
         content,
     } = properties;
@@ -45,12 +48,11 @@ const Editor: React.FC<any> = (properties) => {
 
     const onChange = (props: any) => {
         const content = JSON.stringify(props.value.toJSON());
-        const jsonValue = JSON.stringify(value.toJSON());
-        console.log(content);
-        console.log(jsonValue);
-        // localStorage.setItem('content', content)
-
-        console.log('new value', value);
+        // const jsonValue = JSON.stringify(value.toJSON());
+        // console.log(content);
+        // console.log(jsonValue);
+        // console.log('---');
+        socket.emit('writing', content);
         setValue(props.value);
     }
 
