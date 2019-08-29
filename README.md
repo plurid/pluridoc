@@ -24,11 +24,11 @@
 a `.plurid` file is a simple text file with separated sectors in the document marked with the `<<<` and `>>>` plurid plane dividers which when rendered by the application will result in multiple planes of text
 
 a `.pluridoc` is a collection of `.plurid` files (spaces), containing text,
-images, videos, audio, 3D objects/experiences, whole web-page frozen at a point in time,
+images, videos, audio, 3D objects/experiences, whole web pages frozen at a point in time,
 and more
 
 
-to obtain a plurid plane in an arbitrary `.plurid` file it is enough to do:
+to obtain plurid planes in an arbitrary `.plurid` file it is enough to do:
 
     <<<
     enter text here for the first plane
