@@ -191,7 +191,7 @@ class PluridocServer implements IPluridocServer {
             }
         } catch(error) {
             // console.log(error);
-            const pluridocApp = new PluridocApp({}, '');
+            const pluridocApp = new PluridocApp([], '');
             const pluridocAppHTML = pluridocApp.render();
             res.end(pluridocAppHTML);
         }
