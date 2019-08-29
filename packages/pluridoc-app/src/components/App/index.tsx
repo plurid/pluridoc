@@ -30,7 +30,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
     } else {
         return (
             <div>
-                {content && content.map((planeContent: any) => {
+                {/* {content && content.map((planeContent: any) => {
                     return (
                         <div
                             key={Math.random()*10000 + ''}
@@ -41,7 +41,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
                             />
                         </div>
                     );
-                })}
+                })} */}
             </div>
         );
     }
