@@ -16,29 +16,27 @@ import {
 class PluridocApp implements IPluridocApp {
     private content: any;
     private filename: string;
+    private files: string[];
 
-    constructor(content: any, filename: string) {
+    constructor(content: any, filename: string, files: string[] = []) {
         this.content = content;
         this.filename = filename;
+        this.files = files;
     }
 
     render () {
-        // const appHTML = ReactDOMServer.renderToString(<App content={this.content} />);
-        const title = this.filename.slice(1,);
+        const title = this.filename.slice(1,) || 'pluridoc';
 
-        const clientScriptPath = path.join(__dirname, '../src/client/main.js');
+        const clientScriptPath = path.join(__dirname, '../src/client/script.js');
         const clientScript = fs.readFileSync(clientScriptPath, 'utf8');
-
-        // compile the client-side application as a javascript file and import it into the html template
 
         return `
             <html>
                 <head>
                     <title>${title}</title>
-                    <!-- injected pluridoc-app scripts -->
                     <script>
-                        console.log('works');
                         window.__PLURIDOC_CONTENT__ = ${JSON.stringify(this.content)}
+                        window.__PLURIDOC_FILES__ = ${JSON.stringify(this.files)}
                     </script>
                     <script src="/socket.io/socket.io.js"></script>
                 </head>
