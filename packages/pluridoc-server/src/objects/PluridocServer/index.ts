@@ -2,6 +2,7 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 
+import open from 'open';
 import socket from 'socket.io';
 
 import PluridocParser from '@plurid/pluridoc-parser';
@@ -19,14 +20,10 @@ import {
     FAVICON,
 } from '../../constants';
 
+import {
+    checkAvailablePort,
+} from '../../utilities'
 
-// const io = socket(http);
-// io.on('connection', (socket: any) => {
-//     socket.on('writing', (msg: any) => {
-//         // io.emit('writing', msg);
-//         console.log(msg);
-//     });
-// });
 
 
 class PluridocServer implements IPluridocServer {
@@ -63,19 +60,26 @@ class PluridocServer implements IPluridocServer {
         this.io = socket(this.server);
 
         this.handleConnections();
+
+        process.addListener('SIGINT', () => {
+            this.stop();
+            process.exit(0);
+        });
     }
 
-    public start() {
+    public async start() {
+        this.port = await checkAvailablePort(this.port);
+        const serverlink = `http://localhost:${this.port}`;
         if (this.verbose) {
-            console.log(`\n\tServer Started on Port ${this.port}: http://localhost:${this.port}\n`);
+            console.log(`\n\tPluridoc Server Started on Port ${this.port}: ${serverlink}\n`);
         }
-
         this.server.listen(this.port);
+        open(serverlink);
     }
 
     public stop() {
         if (this.verbose) {
-            console.log(`\n\tServer Closed on Port ${this.port}\n`);
+            console.log(`\n\tPluridoc Server Closed on Port ${this.port}\n`);
         }
 
         this.server.close();
@@ -96,10 +100,12 @@ class PluridocServer implements IPluridocServer {
         }
 
         fs.writeFileSync(file, '');
+        const filelink = `http://localhost:${this.port}/${filename}.plurid`;
         if (this.verbose) {
             console.log(`\tCreated a New .plurid File: ${filename}`);
-            console.log(`\tOpen http://localhost:${this.port}/${filename}.plurid\n`);
+            console.log(`\tOpen ${filelink}\n`);
         }
+        open(filelink);
     }
 
     public newPluridoc (filename: string = 'newpluridoc') {
@@ -117,10 +123,12 @@ class PluridocServer implements IPluridocServer {
         }
 
         fs.writeFileSync(`${filename}.pluridoc`, '');
+        const filelink = `http://localhost:${this.port}/${filename}.pluridoc`;
         if (this.verbose) {
             console.log(`\tCreated a New .pluridoc File: ${filename}`);
-            console.log(`\tOpen http://localhost:${this.port}/${filename}.pluridoc\n`);
+            console.log(`\tOpen ${filelink}\n`);
         }
+        open(filelink);
     }
 
     private handleFiles (req: any, res: any) {
