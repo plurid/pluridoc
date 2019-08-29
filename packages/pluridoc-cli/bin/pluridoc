@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+
+require('../dist/pluridoc-cli.umd.js');
