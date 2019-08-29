@@ -1,4 +1,4 @@
-import program from 'commander';
+import program, { CommanderStatic } from 'commander';
 
 import PluridocServer from '@plurid/pluridoc-server';
 
@@ -10,6 +10,23 @@ const serverOptions = {
 const pluridocServer = new PluridocServer(serverOptions);
 
 
+async function main(program: CommanderStatic) {
+    if (process.argv.length === 2) {
+        await pluridocServer.start();
+    }
+
+    if (process.argv.length <= 4 && program.plurid) {
+        const filename = process.argv[3] || 'newplurid';
+        await pluridocServer.newPlurid(filename);
+    }
+
+    if (process.argv.length <= 4 && program.pluridoc) {
+        const filename = process.argv[3] || 'newpluridoc';
+        await pluridocServer.newPluridoc(filename);
+    }
+}
+
+
 program
     .version('0.0.1', '-v, --version')
     .description("Create and edit .plurid and .pluridoc files.")
@@ -18,16 +35,4 @@ program
     .parse(process.argv);
 
 
-if (process.argv.length === 2) {
-    pluridocServer.start();
-}
-
-if (process.argv.length <= 4 && program.plurid) {
-    const filename = process.argv[3] || 'newplurid';
-    pluridocServer.newPlurid(filename);
-}
-
-if (process.argv.length <= 4 && program.pluridoc) {
-    const filename = process.argv[3] || 'newpluridoc';
-    pluridocServer.newPluridoc(filename);
-}
+main(program);
