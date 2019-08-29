@@ -90,19 +90,19 @@ class PluridocServer implements IPluridocServer {
             this.start();
         }
 
-        const file = `${filename}.plurid`;
+        const file = filename + PLURID_EXTENSION;
 
         if (fs.existsSync(file)) {
             if (this.verbose) {
-                console.log(`\tCould not Create a New .plurid File: ${filename}. Already Exists.`);
+                console.log(`\tCould not Create a New ${PLURID_EXTENSION} File: ${filename} Already Exists.`);
             }
             return;
         }
 
         fs.writeFileSync(file, '');
-        const filelink = `http://localhost:${this.port}/${filename}.plurid`;
+        const filelink = `http://localhost:${this.port}/${file}`;
         if (this.verbose) {
-            console.log(`\tCreated a New .plurid File: ${filename}`);
+            console.log(`\tCreated a New ${PLURID_EXTENSION} File: ${filename}`);
             console.log(`\tOpen ${filelink}\n`);
         }
         open(filelink);
@@ -113,19 +113,19 @@ class PluridocServer implements IPluridocServer {
             this.start();
         }
 
-        const file = `${filename}.pluridoc`;
+        const file = filename + PLURIDOC_EXTENSION;
 
         if (fs.existsSync(file)) {
             if (this.verbose) {
-                console.log(`\tCould not Create a New .pluridoc File: ${filename}. Already Exists.`);
+                console.log(`\tCould not Create a New ${PLURIDOC_EXTENSION} File: ${filename} Already Exists.`);
             }
             return;
         }
 
-        fs.writeFileSync(`${filename}.pluridoc`, '');
-        const filelink = `http://localhost:${this.port}/${filename}.pluridoc`;
+        fs.writeFileSync(file, '');
+        const filelink = `http://localhost:${this.port}/${file}`;
         if (this.verbose) {
-            console.log(`\tCreated a New .pluridoc File: ${filename}`);
+            console.log(`\tCreated a New ${PLURIDOC_EXTENSION} File: ${filename}`);
             console.log(`\tOpen ${filelink}\n`);
         }
         open(filelink);
