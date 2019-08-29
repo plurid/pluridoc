@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/plurid/pluridoc/master/about/identity/pluridoc-logo.png" height="250px">
+    <a target="_blank" href="https://pluridoc.plurid.com">
+        <img src="https://raw.githubusercontent.com/plurid/pluridoc/master/about/identity/pluridoc-logo.png" height="250px">
+    </a>
     <br />
     <a target="_blank" href="https://github.com/plurid/pluridoc/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-blue.svg?colorB=1380C3&style=for-the-badge" alt="License: MIT">
