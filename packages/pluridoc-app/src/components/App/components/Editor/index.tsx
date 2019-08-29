@@ -7,7 +7,6 @@ import { Value } from 'slate';
 
 
 
-
 const Editor: React.FC<any> = (properties) => {
     const socket = io();
 
