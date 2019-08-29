@@ -18,7 +18,7 @@ class PluridocApp implements IPluridocApp {
     private filename: string;
     private files: string[];
 
-    constructor(content: any, filename: string, files: string[] = []) {
+    constructor(content: any = {}, filename: string = '', files: string[] = []) {
         this.content = content;
         this.filename = filename;
         this.files = files;
@@ -29,6 +29,9 @@ class PluridocApp implements IPluridocApp {
 
         const clientScriptPath = path.join(__dirname, '../src/client/script.js');
         const clientScript = fs.readFileSync(clientScriptPath, 'utf8');
+
+        console.log('aaa', this.content);
+        console.log('aaa', this.files);
 
         return `
             <html>
