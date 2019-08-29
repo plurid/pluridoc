@@ -65,11 +65,13 @@
     },
     "dependencies": {
         "@plurid/pluridoc-parser": "*",
+        "css-loader": "^3.2.0",
         "immutable": "^4.0.0-rc.12",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "slate": "^0.47.8",
         "slate-react": "^0.22.8",
+        "style-loader": "^1.0.0",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.7"
     },
