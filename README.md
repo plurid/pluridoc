@@ -85,7 +85,11 @@ for more information see [about/notes](https://github.com/plurid/pluridoc/tree/m
 
 ## Usage
 
-Install the [pluridoc command line tool][pluridoc-cli] and run
+Install the [pluridoc command line tool][pluridoc-cli]
+
+    npm install -g @plurid/pluridoc-cli
+
+and run
 
     pluridoc
 
