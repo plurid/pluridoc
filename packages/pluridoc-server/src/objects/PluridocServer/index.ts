@@ -162,7 +162,18 @@ class PluridocServer implements IPluridocServer {
             extension !== PLURID_EXTENSION
             && extension !== PLURIDOC_EXTENSION
         ) {
-            const pluridocApp = new PluridocApp({}, '', ['a', 'b']);
+            const files = fs.readdirSync(process.cwd());
+            const pluridFiles = files.filter((file: string) => {
+                const pluridRe = new RegExp(`${PLURID_EXTENSION}`);
+                if (pluridRe.test(file)) { return file; }
+
+                const pluridocRe = new RegExp(`${PLURIDOC_EXTENSION}`);
+                if (pluridocRe.test(file)) { return file; }
+
+                return false;
+            });
+
+            const pluridocApp = new PluridocApp({}, '', pluridFiles);
             const pluridocAppHTML = pluridocApp.render();
             res.end(pluridocAppHTML);
             return;
