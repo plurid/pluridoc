@@ -1,6 +1,19 @@
-# pluridoc
+<p align="center">
+    <img src="https://raw.githubusercontent.com/plurid/pluridoc/master/about/identity/pluridoc-logo.png" height="250px">
+    <br />
+    <a target="_blank" href="https://github.com/plurid/plurid/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-blue.svg?colorB=1380C3&style=for-the-badge" alt="License: MIT">
+    </a>
+</p>
 
 
+<h1 align="center">
+    pluridoc
+</h1>
+
+
+
+## General
 
 a `.plurid` file is a simple text file with separated sectors in the document marked with the `<<<` and `>>>` plurid plane dividers which when rendered by the application will result in multiple planes of text
 
@@ -67,3 +80,35 @@ it must be escaped
 
 
 for more information see [about/notes](https://github.com/plurid/pluridoc/tree/master/about/notes)
+
+
+
+## Usage
+
+Install the [pluridoc command line tool][pluridoc-cli] and run
+
+    pluridoc
+
+
+
+## Packages
+
+
+[@plurid/pluridoc-app][pluridoc-app] - the pluridoc application
+
+[pluridoc-app]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-app
+
+
+[@plurid/pluridoc-cli][pluridoc-cli] - the pluridoc command line interface
+
+[pluridoc-cli]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-cli
+
+
+[@plurid/pluridoc-parser][pluridoc-parser] - the pluridoc parser
+
+[pluridoc-parser]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-parser
+
+
+[@plurid/pluridoc-server][pluridoc-server] - the pluridoc server
+
+[pluridoc-server]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-server
