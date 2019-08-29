@@ -20,11 +20,15 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
             {files && (
                 <ul>
                     {files.map((file: string) => {
+                        const link = `/${file}`;
+
                         return (
                             <li
                                 key={file}
                             >
-                                {file}
+                                <a href={link}>
+                                    {file}
+                                </a>
                             </li>
                         )
                     })}
