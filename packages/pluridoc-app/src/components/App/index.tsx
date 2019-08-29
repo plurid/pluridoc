@@ -2,9 +2,8 @@ import React from 'react';
 
 import './index.css';
 
-import Editor from './components/Editor';
-
 import Dashboard from './containers/Dashboard';
+import File from './containers/File';
 
 
 
@@ -19,9 +18,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
         files,
     } = properties;
 
-    console.log(content, files);
-
-    if (!content) {
+    if (content === {}) {
         return (
             <Dashboard
                 files={files}
@@ -29,20 +26,9 @@ const App: React.FC<AppOwnProperties> = (properties) => {
         );
     } else {
         return (
-            <div>
-                {/* {content && content.map((planeContent: any) => {
-                    return (
-                        <div
-                            key={Math.random()*10000 + ''}
-                            className="plurid-plane"
-                        >
-                            <Editor
-                                content={planeContent}
-                            />
-                        </div>
-                    );
-                })} */}
-            </div>
+            <File
+                content={content}
+            />
         );
     }
 }

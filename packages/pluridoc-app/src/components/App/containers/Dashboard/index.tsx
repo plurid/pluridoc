@@ -11,11 +11,25 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
         files,
     } = properties;
 
-    console.log(files);
-
     return (
         <div>
-            open files
+            <div>
+                open files
+            </div>
+
+            {files && (
+                <ul>
+                    {files.map((file: string) => {
+                        return (
+                            <li
+                                key={file}
+                            >
+                                {file}
+                            </li>
+                        )
+                    })}
+                </ul>
+            )}
         </div>
     );
 }
