@@ -67,7 +67,7 @@ class PluridocServer implements IPluridocServer {
 
     public start() {
         if (this.verbose) {
-            console.log(`Server started on port ${this.port}`);
+            console.log(`\n\tServer Started on Port ${this.port}: http://localhost:${this.port}\n`);
         }
 
         this.server.listen(this.port);
@@ -75,23 +75,51 @@ class PluridocServer implements IPluridocServer {
 
     public stop() {
         if (this.verbose) {
-            console.log(`Server closed on port ${this.port}`);
+            console.log(`\n\tServer Closed on Port ${this.port}\n`);
         }
 
         this.server.close();
     }
 
     public newPlurid (filename: string = 'newplurid') {
-        fs.writeFileSync(`${filename}.plurid`, '');
+        if (!this.server.address()) {
+            this.start();
+        }
+
+        const file = `${filename}.plurid`;
+
+        if (fs.existsSync(file)) {
+            if (this.verbose) {
+                console.log(`\tCould not Create a New .plurid File: ${filename}. Already Exists.`);
+            }
+            return;
+        }
+
+        fs.writeFileSync(file, '');
         if (this.verbose) {
-            console.log(`Created new .plurid file: ${filename}`);
+            console.log(`\tCreated a New .plurid File: ${filename}`);
+            console.log(`\tOpen http://localhost:${this.port}/${filename}.plurid\n`);
         }
     }
 
     public newPluridoc (filename: string = 'newpluridoc') {
+        if (!this.server.address()) {
+            this.start();
+        }
+
+        const file = `${filename}.pluridoc`;
+
+        if (fs.existsSync(file)) {
+            if (this.verbose) {
+                console.log(`\tCould not Create a New .pluridoc File: ${filename}. Already Exists.`);
+            }
+            return;
+        }
+
         fs.writeFileSync(`${filename}.pluridoc`, '');
         if (this.verbose) {
-            console.log(`Created new .pluridoc file: ${filename}`);
+            console.log(`\tCreated a New .pluridoc File: ${filename}`);
+            console.log(`\tOpen http://localhost:${this.port}/${filename}.pluridoc\n`);
         }
     }
 
