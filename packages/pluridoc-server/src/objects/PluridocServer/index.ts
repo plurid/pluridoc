@@ -2,6 +2,8 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 
+import socket from 'socket.io';
+
 import PluridocParser from '@plurid/pluridoc-parser';
 import PluridocApp from '@plurid/pluridoc-app';
 
@@ -18,12 +20,20 @@ import {
 } from '../../constants';
 
 
+// const io = socket(http);
+// io.on('connection', (socket: any) => {
+//     socket.on('writing', (msg: any) => {
+//         // io.emit('writing', msg);
+//         console.log(msg);
+//     });
+// });
 
 
 class PluridocServer implements IPluridocServer {
     private server: http.Server;
     private port: number = DEFAULT_PLURID_PORT;
     private verbose: boolean = false;
+    private io: any;
 
     constructor(options?: PluridocServerOptions) {
         if (options) {
@@ -45,8 +55,14 @@ class PluridocServer implements IPluridocServer {
                 return;
             }
 
-            this.handleFiles(req, res);
+            if (req.url && !/socket.io/.test(req.url)) {
+                this.handleFiles(req, res);
+            }
         });
+
+        this.io = socket(this.server);
+
+        this.handleConnections();
     }
 
     public start() {
@@ -104,6 +120,14 @@ class PluridocServer implements IPluridocServer {
             // const pluridAppHTML = PluridApp.render({});
             // res.end(pluridAppHTML);
         }
+    }
+
+    private handleConnections () {
+        this.io.on('connection', (socket: any) => {
+            socket.on('writing', (msg: any) => {
+                console.log(msg);
+            });
+        });
     }
 }
 
