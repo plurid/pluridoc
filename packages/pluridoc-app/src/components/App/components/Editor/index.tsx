@@ -8,76 +8,28 @@ import { Value } from 'slate';
 
 
 
-const initialValue = Value.fromJSON({
-    document: {
-        nodes: [
-            {
+const Editor: React.FC<any> = (properties) => {
+    const {
+        content,
+    } = properties;
+
+    const parseValueFromContent = (content: any) => {
+        const nodes: any[] = [];
+
+        for (let i = 0; i < content.text.length; i++) {
+            const textNode = {
                 object: 'block',
                 type: 'paragraph',
                 nodes: [
                     {
                         object: 'text',
-                        text: 'text',
+                        text: content.text[i],
                     },
                 ],
-            },
-        ],
-    },
-});
+            };
 
-
-const Editor: React.FC<any> = (properties) => {
-    const [value, setValue] = useState(initialValue);
-
-    const {
-        content,
-    } = properties;
-
-    useEffect(() => {
-        console.log(content);
-        const value: any = parseValueFromContent(content);
-        console.log('value use effect', value);
-        setValue(Value.fromJSON({...value}));
-    }, [content]);
-
-    const parseValueFromContent = (content: any) => {
-        const nodes: any[] = [];
-
-        for (let i = 0; i < content.length; i++) {
-            for (let j = 0; j < content[i].text.length; j++) {
-                const textNode = {
-                    object: 'block',
-                    type: 'paragraph',
-                    nodes: [
-                        {
-                            object: 'text',
-                            text: content[i].text[j],
-                        },
-                    ],
-                };
-
-                nodes.push(textNode);
-            }
+            nodes.push(textNode);
         }
-
-        // for (const contentItem of content.entries()) {
-        //     console.log('contentItem', contentItem);
-
-        //     for (const text of contentItem.text.entries()) {
-        //         const textNode = {
-        //             object: 'block',
-        //             type: 'paragraph',
-        //             nodes: [
-        //                 {
-        //                     object: 'text',
-        //                     text,
-        //                 },
-        //             ],
-        //         };
-
-        //         nodes.push(textNode);
-        //     }
-        // }
 
         const value = {
             document: {
@@ -87,6 +39,10 @@ const Editor: React.FC<any> = (properties) => {
 
         return value;
     }
+
+    const initialValue: any = parseValueFromContent(content);
+
+    const [value, setValue] = useState(Value.fromJSON({...initialValue}));
 
     const onChange = ({ value }: any) => {
         // const content = JSON.stringify(value.toJSON())

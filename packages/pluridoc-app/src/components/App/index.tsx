@@ -5,6 +5,7 @@ import React from 'react';
 import Editor from './components/Editor';
 
 
+
 interface AppOwnProperties {
     content: any;
 }
@@ -16,34 +17,18 @@ const App: React.FC<AppOwnProperties> = (properties) => {
 
     return (
         <div>
-            {content.map((itemContent: any) => {
-                const {
-                    text,
-                } = itemContent;
-
+            {content.map((planeContent: any) => {
                 return (
                     <div
                         key={Math.random()*10000 + ''}
                         className="plurid-plane"
                     >
-                        {
-                            text.map((txt: any) => {
-                                return (
-                                    <p
-                                        key={Math.random()*10000 + ''}
-                                    >
-                                        {txt}
-                                    </p>
-                                );
-                            })
-                        }
+                        <Editor
+                            content={planeContent}
+                        />
                     </div>
                 );
             })}
-
-            <Editor
-                content={content}
-            />
         </div>
     );
 }
