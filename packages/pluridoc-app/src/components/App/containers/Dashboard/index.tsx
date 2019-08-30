@@ -25,6 +25,10 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
         files,
     } = properties;
 
+    const createFile = () => {
+        console.log('create new plurid file');
+    }
+
     return (
         <StyledDashboard>
             <StyledDashboardTitle>
@@ -68,7 +72,9 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
 
             <StyledDashboardCreate>
                 <button
-                    onClick={() => setShowFileCreation(true)}
+                    onClick={() => {
+                        showFileCreation ? createFile() : setShowFileCreation(true);
+                    }}
                 >
                     Create a New File
                 </button>
@@ -100,11 +106,9 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
                     </div>
 
                     <div>
-                        <button>
-                            Create
-                        </button>
-
-                        <button>
+                        <button
+                            onClick={() => setShowFileCreation(false)}
+                        >
                             Cancel
                         </button>
                     </div>
