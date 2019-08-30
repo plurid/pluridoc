@@ -1,7 +1,8 @@
 {
-    "name": "@plurid/pluridoc-grammar-vscode",
+    "name": "pluridoc-grammar",
     "version": "0.0.1",
     "displayName": "pluridoc",
+    "publisher": "plurid",
     "description": "Syntax highlighting for pluridocs (.plurid and .pluridoc)",
     "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com/)",
     "repository": {
