@@ -1,3 +1,10 @@
-<<<
+<<< id: 123 | title: First Plane | location: root
 plane content
+>>>
+
+
+<<< id: 123 | title: First Plane | location: root | processor: javascript
+
+const a = 20;
+
 >>>
