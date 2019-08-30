@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 body {
+    height: 100vw;
     margin: 0;
-    background-color: hsl(220, 20%, 20%);
+    background-color: hsl(220, 10%, 26%);
     color: white;
-    padding: 30px;
     font-family: Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
         Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#root {
+    height: 100%;
+}
+
 .plurid-plane {
-    background-color: hsl(220, 20%, 10%);
+    background-color: hsl(220, 10%, 20%);
     margin: 30px;
     padding: 20px;
     font-size: 14px;

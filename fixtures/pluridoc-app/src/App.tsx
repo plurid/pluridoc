@@ -5,7 +5,10 @@ import { PluridocReactApp } from '@plurid/pluridoc-app';
 
 
 const content: any[] = [];
-const files: any[] = [];
+const files: any[] = [
+    'a-file.plurid',
+    'another-file.pluridoc',
+];
 
 const App: React.FC = () => {
     return (

@@ -15,7 +15,8 @@
         "jsx": "react",
         "typeRoots": [
             "node_modules/@types"
-        ]
+        ],
+        "types": ["react", "jest", "node"]
     },
     "include": [
         "src"

@@ -1,5 +1,14 @@
 import React from 'react';
 
+import {
+    StyledDashboard,
+    StyledDashboardTitle,
+    StyledDashboardList,
+    StyledDashboardCreate,
+} from './styled';
+
+import PluridLogo from '../../assets/plurid-logo.png';
+
 
 
 interface DashboardOwnProperties {
@@ -12,29 +21,38 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
     } = properties;
 
     return (
-        <div>
-            <div>
-                open files
-            </div>
+        <StyledDashboard>
+            <StyledDashboardTitle>
+                <img src={PluridLogo} alt="plurid logo" height={50} />
+                <h1>
+                    pluridoc
+                </h1>
+            </StyledDashboardTitle>
 
-            {files && (
-                <ul>
-                    {files.map((file: string) => {
-                        const link = `/${file}`;
+            <StyledDashboardList>
+                {files && (
+                    <ul>
+                        {files.map((file: string) => {
+                            const link = `/${file}`;
 
-                        return (
-                            <li
-                                key={file}
-                            >
-                                <a href={link}>
-                                    {file}
-                                </a>
-                            </li>
-                        )
-                    })}
-                </ul>
-            )}
-        </div>
+                            return (
+                                <li
+                                    key={file}
+                                >
+                                    <a href={link}>
+                                        {file}
+                                    </a>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                )}
+            </StyledDashboardList>
+
+            <StyledDashboardCreate>
+                Create New File
+            </StyledDashboardCreate>
+        </StyledDashboard>
     );
 }
 

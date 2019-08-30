@@ -8,6 +8,7 @@ import camelCase from 'lodash.camelcase';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
+import image from 'rollup-plugin-img';
 
 
 
@@ -51,6 +52,10 @@ export default {
 
         postcss({
             extensions: [ '.css' ],
+        }),
+
+        image({
+            limit: 10000
         }),
 
         // Compile TypeScript files
