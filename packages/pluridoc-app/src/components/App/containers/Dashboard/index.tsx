@@ -32,17 +32,29 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
             <StyledDashboardList>
                 {files && (
                     <ul>
+                        <li
+                            style={{
+                                backgroundColor: 'hsl(220, 10%, 15%)',
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            files
+                        </li>
                         {files.map((file: string) => {
                             const link = `/${file}`;
 
                             return (
-                                <li
+                                <a
+                                    href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     key={file}
                                 >
-                                    <a href={link}>
-                                        {file}
-                                    </a>
-                                </li>
+                                    <li>
+                                            {file}
+                                    </li>
+                                </a>
                             )
                         })}
                     </ul>
