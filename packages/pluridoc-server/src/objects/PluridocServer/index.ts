@@ -31,6 +31,7 @@ import {
 
 import {
     checkAvailablePort,
+    createPluridocFile,
 } from '../../utilities';
 
 
@@ -140,7 +141,7 @@ class PluridocServer implements IPluridocServer {
             await this.start(options);
         }
 
-        fs.writeFileSync(file, '');
+        await createPluridocFile(filename);
 
         const filelink = `http://localhost:${this.port}/${file}`;
         if (this.verbose) {
