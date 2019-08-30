@@ -141,3 +141,8 @@ and run
 [@plurid/pluridoc-server][pluridoc-server] • the pluridoc server
 
 [pluridoc-server]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-server
+
+
+[@plurid/pluridoc-grammar][pluridoc-grammar] • text editor syntax highlighting
+
+[pluridoc-grammar]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-grammar
