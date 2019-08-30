@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+// import PluridApp from '@plurid/plurid-react';
 import Editor from '../../components/Editor';
 
 
@@ -13,8 +15,15 @@ const File: React.FC<FileOwnProperties> = (properties) => {
         content,
     } = properties;
 
+    // process content into a PluridApp specific data structure
+    // and pass it as prop
+
     return (
         <div>
+            {/* <PluridApp
+                content={content}
+            /> */}
+
             {content && content.map((planeContent: any) => {
                 return (
                     <div

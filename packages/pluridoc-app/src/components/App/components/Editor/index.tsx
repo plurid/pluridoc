@@ -8,7 +8,7 @@ import { Value } from 'slate';
 
 
 const Editor: React.FC<any> = (properties) => {
-    const socket = io();
+    // const socket = io();
 
     const {
         content,
@@ -51,7 +51,7 @@ const Editor: React.FC<any> = (properties) => {
         // console.log(content);
         // console.log(jsonValue);
         // console.log('---');
-        socket.emit('writing', content);
+        // socket.emit('writing', content);
         setValue(props.value);
     }
 

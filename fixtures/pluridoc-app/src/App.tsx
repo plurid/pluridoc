@@ -4,14 +4,29 @@ import { PluridocReactApp } from '@plurid/pluridoc-app';
 
 
 
-const content: any[] = [];
+const content: any[] = [
+    {
+        text: [
+            'foo',
+            'boo',
+        ],
+        metadata: {},
+    },
+    {
+        text: [
+            'loo',
+            'too',
+        ],
+        metadata: {},
+    },
+];
 const files: any[] = [
-    'a-file.plurid',
-    'another-file.pluridoc',
-    'a-file2.plurid',
-    'another-file2.pluridoc',
-    'a-file3.plurid',
-    'another-file3.pluridoc',
+    // 'a-file.plurid',
+    // 'another-file.pluridoc',
+    // 'a-file2.plurid',
+    // 'another-file2.pluridoc',
+    // 'a-file3.plurid',
+    // 'another-file3.pluridoc',
     // 'a-file4.plurid',
     // 'another-file4.pluridoc',
     // 'a-file5.plurid',
