@@ -7,6 +7,7 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 import camelCase from 'lodash.camelcase';
 import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
+import postcss from 'rollup-plugin-postcss';
 
 
 
@@ -47,6 +48,10 @@ export default {
     plugins: [
         // Allow json resolution
         json(),
+
+        postcss({
+            extensions: [ '.css' ],
+        }),
 
         // Compile TypeScript files
         typescript({
