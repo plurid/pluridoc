@@ -1,0 +1,52 @@
+{
+    "name": "@plurid/pluridoc-grammar-vscode",
+    "version": "0.0.1",
+    "displayName": "pluridoc",
+    "description": "Syntax highlighting for pluridocs (.plurid and .pluridoc)",
+    "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com/)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/plurid/pluridoc"
+    },
+    "license": "MIT",
+    "engines": {
+        "vscode": "^1.37.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "pluridoc",
+                "aliases": [
+                    "plurid",
+                    "pluridoc"
+                ],
+                "extensions": [
+                    ".plurid",
+                    ".pluridoc"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pluridoc",
+                "scopeName": "source.plurid",
+                "path": "./syntaxes/pluridoc.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.javascript": "source.js"
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "yamlToJson": "js-yaml syntaxes/pluridoc.tmLanguage.yaml > syntaxes/pluridoc.tmLanguage.json",
+        "jsonToYaml": "js-yaml syntaxes/pluridoc.tmLanguage.json > syntaxes/pluridoc.tmLanguage.yaml",
+        "prepublishOnly": "yarn yamlToJson"
+    },
+    "dependencies": {
+        "js-yaml": "^3.13.1"
+    }
+}
