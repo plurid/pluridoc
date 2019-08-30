@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {
+    useState,
+} from 'react';
 
 import {
     StyledDashboard,
     StyledDashboardTitle,
     StyledDashboardList,
     StyledDashboardCreate,
+    StyledFileCreationContainer,
 } from './styled';
 
 import PluridLogo from '../../assets/plurid-logo.png';
@@ -16,6 +19,8 @@ interface DashboardOwnProperties {
 }
 
 const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
+    const [showFileCreation, setShowFileCreation] = useState(false);
+
     const {
         files,
     } = properties;
@@ -30,7 +35,7 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
             </StyledDashboardTitle>
 
             <StyledDashboardList>
-                {files && (
+                {files.length > 0 && (
                     <ul>
                         <li
                             style={{
@@ -62,8 +67,49 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
             </StyledDashboardList>
 
             <StyledDashboardCreate>
-                Create New File
+                <button
+                    onClick={() => setShowFileCreation(true)}
+                >
+                    Create a New File
+                </button>
             </StyledDashboardCreate>
+
+            {showFileCreation && (
+                <StyledFileCreationContainer>
+                    <div>
+                        <div>
+                            filename
+                        </div>
+
+                        <input />
+                    </div>
+
+                    <div>
+                        <div>
+                            filetype
+                        </div>
+
+                        <div>
+                            <div>
+                                .plurid
+                            </div>
+                            <div>
+                                .pluridoc
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button>
+                            Create
+                        </button>
+
+                        <button>
+                            Cancel
+                        </button>
+                    </div>
+                </StyledFileCreationContainer>
+            )}
         </StyledDashboard>
     );
 }

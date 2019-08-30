@@ -66,3 +66,17 @@ export const StyledDashboardCreate = styled.div`
     display: grid;
     place-content: center;
 `;
+
+
+export const StyledFileCreationContainer = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: grid;
+    place-content: center;
+    justify-content: center;
+    width: 330px;
+    height: 300px;
+    background: hsl(220, 10%, 20%);
+`;
