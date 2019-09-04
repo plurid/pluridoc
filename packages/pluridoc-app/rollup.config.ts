@@ -17,10 +17,14 @@ const pkg = require('./package.json');
 const libraryName = 'pluridoc-app';
 
 const globals = {
+    'fs': 'fs',
+    'path': 'path',
     'react': 'React',
     'react-dom/server': 'ReactDOM',
+    'styled-components': 'styled',
     'slate': 'slate',
     'slate-react': 'slateReact',
+    '@plurid/plurid-react': 'PluridApp',
 };
 
 
@@ -33,12 +37,14 @@ export default {
             format: 'umd',
             globals,
             sourcemap: true,
+            exports: 'named',
         },
         {
             file: pkg.module,
             format: 'es',
             globals,
             sourcemap: true,
+            exports: 'named',
         },
     ],
     // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')

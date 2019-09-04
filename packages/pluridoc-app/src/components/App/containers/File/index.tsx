@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-// import PluridApp from '@plurid/plurid-react';
+import PluridApp from '@plurid/plurid-react';
 import Editor from '../../components/Editor';
 
 
@@ -17,14 +17,27 @@ const File: React.FC<FileOwnProperties> = (properties) => {
 
     // process content into a PluridApp specific data structure
     // and pass it as prop
+    const pages: any[] = [];
+    for (let planeContent of content) {
+        const page = {
+            path: Math.random()*10000 + '',
+            component: {
+                element: () => (<Editor content={planeContent} />)
+            },
+            root: true,
+        }
+        pages.push(page);
+    }
+
+    console.log(pages);
 
     return (
         <div>
-            {/* <PluridApp
-                content={content}
-            /> */}
+            <PluridApp
+                pages={pages}
+            />
 
-            {content && content.map((planeContent: any) => {
+            {/* {content && content.map((planeContent: any) => {
                 return (
                     <div
                         key={Math.random()*10000 + ''}
@@ -35,7 +48,7 @@ const File: React.FC<FileOwnProperties> = (properties) => {
                         />
                     </div>
                 );
-            })}
+            })} */}
         </div>
     );
 }
