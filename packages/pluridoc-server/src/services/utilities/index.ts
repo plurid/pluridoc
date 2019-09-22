@@ -98,7 +98,7 @@ export const checkAndSetContentIDs = async (
         if (!plane.metadata.id) {
             const newPlane = { ...plane };
             const id = crypto.randomBytes(16).toString('hex');
-            newPlane.metadata.id = 'pluridoc-plane-' + id;
+            newPlane.metadata.id = id;
             return newPlane;
         }
         return plane;
