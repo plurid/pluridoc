@@ -1,3 +1,4 @@
+import 'jsdom-global/register';
 import program, { CommanderStatic } from 'commander';
 
 import PluridocServer from '@plurid/pluridoc-server';
