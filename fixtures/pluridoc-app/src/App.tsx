@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PluridocReactApp } from '@plurid/pluridoc-app';
+import { PluridocAppComponent } from '@plurid/pluridoc-app';
 
 
 
@@ -41,7 +41,7 @@ const files: any[] = [
 
 const App: React.FC = () => {
     return (
-        <PluridocReactApp
+        <PluridocAppComponent
             content={content}
             files={files}
         />
