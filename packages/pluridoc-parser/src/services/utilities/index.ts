@@ -50,3 +50,31 @@ export const pluridocDataToPluridocString = (
 
     return contentString;
 }
+
+
+/**
+ * Updates the plurid plane with id `pluridPlaneID`
+ * from the `text` with the `updatedPluridPlaneText`.
+ *
+ * @param text
+ * @param pluridPlaneID
+ * @param updatedPluridPlaneText
+ */
+export const updatePluridPlaneWithID = (
+    text: string,
+    pluridPlaneID: string,
+    updatedPluridPlaneText: string,
+): string => {
+    const planeIDRE = new RegExp(`(<<<(.*)id: ${pluridPlaneID}(.*)\\n((.*[\\s\\S])*?)>>>)`, 'im');
+    const planeMatch = text.match(planeIDRE);
+
+    if (planeMatch && planeMatch[0] && planeMatch[4]) {
+        const planeTextFull = planeMatch[0];
+        const planeText = planeMatch[4];
+        const updatedPlaneText = planeTextFull.replace(planeText, updatedPluridPlaneText + '\n');
+        const updatedText = text.replace(planeTextFull, updatedPlaneText);
+        return updatedText;
+    }
+
+    return text;
+}
