@@ -64,7 +64,7 @@
     },
     "dependencies": {
         "@plurid/pluridoc-app": "^0.0.4",
-        "@plurid/pluridoc-parser": "^0.0.6",
+        "@plurid/pluridoc-parser": "^0.0.7",
         "archiver": "^3.1.1",
         "open": "^6.4.0",
         "portscanner": "^2.2.0",
