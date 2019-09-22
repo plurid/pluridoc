@@ -1,8 +1,10 @@
 import React from 'react';
 
-
-import PluridApp from '@plurid/plurid-react';
 import Editor from '../../components/Editor';
+
+import PluridApp, {
+    PluridConfiguration,
+} from '@plurid/plurid-react';
 
 
 
@@ -29,12 +31,20 @@ const File: React.FC<FileOwnProperties> = (properties) => {
         pages.push(page);
     }
 
-    // console.log(pages);
+    const appConfiguration: Partial<PluridConfiguration> = {
+        space: {
+            layout: {
+                type: 'COLUMNS',
+            }
+        },
+        planeWidth: 1,
+    };
 
     return (
         <div>
             <PluridApp
                 pages={pages}
+                configuration={appConfiguration}
             />
         </div>
     );
