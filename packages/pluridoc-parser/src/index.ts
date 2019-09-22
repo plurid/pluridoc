@@ -8,6 +8,10 @@ import {
     PLURIDOC_METADATA,
 } from './data/constants';
 
+import {
+    pluridocDataToPluridocString,
+} from './services/utilities';
+
 
 
 export {
@@ -16,6 +20,9 @@ export {
 
     // constants
     PLURIDOC_METADATA,
+
+    // utilities
+    pluridocDataToPluridocString,
 }
 
 export default PluridocParser;
