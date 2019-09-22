@@ -5,17 +5,23 @@ import './index.css';
 import Dashboard from './containers/Dashboard';
 import File from './containers/File';
 
+import {
+    PluridocPlane,
+} from '@plurid/pluridoc-parser';
+
 
 
 interface AppOwnProperties {
-    content: any[];
-    files: any;
+    files: string[];
+    filename: string;
+    content: PluridocPlane[];
 }
 
 const App: React.FC<AppOwnProperties> = (properties) => {
     const {
-        content,
         files,
+        filename,
+        content,
     } = properties;
 
     if (content.length === 0) {
@@ -27,6 +33,7 @@ const App: React.FC<AppOwnProperties> = (properties) => {
     } else {
         return (
             <File
+                filename={filename}
                 content={content}
             />
         );

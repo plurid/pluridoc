@@ -5,15 +5,17 @@ import App from './App';
 
 
 
-const content = (window as any).__PLURIDOC_CONTENT__;
 const files = (window as any).__PLURIDOC_FILES__;
+const filename = (window as any).__PLURIDOC_FILENAME__;
+const content = (window as any).__PLURIDOC_CONTENT__;
 
 const pluridocApp = document.getElementById('pluridoc-app');
 
 ReactDOM.render(
     <App
-        content={content}
         files={files}
+        filename={filename}
+        content={content}
     />,
     pluridocApp
 );

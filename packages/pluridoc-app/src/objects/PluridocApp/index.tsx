@@ -5,11 +5,14 @@ import {
     PluridocApp as IPluridocApp,
 } from '../../data/interfaces';
 
+import {
+    PluridocPlane,
+} from '@plurid/pluridoc-parser';
 
 
 
 class PluridocApp implements IPluridocApp {
-    private content: any[];
+    private content: PluridocPlane[];
     private filename: string;
     private files: string[];
 
@@ -32,8 +35,9 @@ class PluridocApp implements IPluridocApp {
                 <head>
                     <title>${title}</title>
                     <script>
-                        window.__PLURIDOC_CONTENT__ = ${JSON.stringify(this.content)}
                         window.__PLURIDOC_FILES__ = ${JSON.stringify(this.files)}
+                        window.__PLURIDOC_FILENAME__ = ${JSON.stringify(this.filename)}
+                        window.__PLURIDOC_CONTENT__ = ${JSON.stringify(this.content)}
                     </script>
                     <script src="/socket.io/socket.io.js"></script>
                 </head>

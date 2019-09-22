@@ -497,10 +497,10 @@
     "@plurid/plurid-engine" "^0.1.8"
     "@plurid/plurid-pubsub" "^0.1.1"
 
-"@plurid/pluridoc-parser@*":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.1.tgz#2a28f418a360654f9d4919450534140a64b02df5"
-  integrity sha512-ex53cbnwpDfH7TiSkGfOoizHjDYUg+7Itf0XaTRskwHRAbm3idpiXA8LBM51NJjbLrtq1zpl4X5Iiq+m2KlQmA==
+"@plurid/pluridoc-parser@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.5.tgz#57b45d850e2790cc1fce3dc8253b17d1dd719a11"
+  integrity sha512-3EpUfrmWXYe9WmnbHs21XFl6Edc9AzTL2vmOWWDL6SIAtutSwqzfHGGlmVmzOaQDoBHx3QC4VpNV/kZropDOtg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.2"
