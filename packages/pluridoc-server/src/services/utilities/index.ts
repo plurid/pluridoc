@@ -3,6 +3,8 @@ import fs from 'fs';
 import portscanner from 'portscanner';
 import archiver from 'archiver';
 
+import { PluridocPlane } from '@plurid/pluridoc-parser';
+
 import {
     PLURIDOC_EXTENSION,
 } from '../../data/constants';
@@ -81,4 +83,10 @@ export const createPluridocFile = async (filename: string) => {
     await zipDirectory(filename, file);
 
     deleteDirectory(filename);
+}
+
+
+
+export const checkContentIDs = (content: PluridocPlane[]) => {
+    return content;
 }

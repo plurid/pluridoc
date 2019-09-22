@@ -30,6 +30,7 @@ import {
 import {
     checkAvailablePort,
     createPluridocFile,
+    checkContentIDs,
 } from '../../services/utilities';
 
 
@@ -183,8 +184,9 @@ class PluridocServer implements IPluridocServer {
                 const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
+                const contentIDed = checkContentIDs(content);
 
-                const pluridocApp = new PluridocApp(content, requestedFile);
+                const pluridocApp = new PluridocApp(contentIDed, requestedFile);
                 const pluridocAppHTML = pluridocApp.render();
                 res.end(pluridocAppHTML);
             }
