@@ -424,6 +424,11 @@
   resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.5.tgz#57b45d850e2790cc1fce3dc8253b17d1dd719a11"
   integrity sha512-3EpUfrmWXYe9WmnbHs21XFl6Edc9AzTL2vmOWWDL6SIAtutSwqzfHGGlmVmzOaQDoBHx3QC4VpNV/kZropDOtg==
 
+"@plurid/pluridoc-parser@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.6.tgz#6d4720bf17705c5fb8dd099369120091322ef4ea"
+  integrity sha512-oP3GvNhIVb720zm1iCOOnQKgUbb/4PmcuolPMi1Psy3E7w0wO3CdfPKN5RysilnKJP3H5otG/xYnpaebocywsQ==
+
 "@types/archiver@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/archiver/-/archiver-3.0.0.tgz#c0a53e0ed3b7aef626ce683d081d7821d8c638b4"
