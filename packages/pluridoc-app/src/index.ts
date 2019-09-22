@@ -6,11 +6,21 @@ import {
     IO_CONNECTIONS,
 } from './data/enumerations';
 
+import {
+    IOMessageFileWrite,
+} from './data/interfaces';
+
 
 
 export {
+    // components
     PluridocAppComponent,
+
+    // enumerations
     IO_CONNECTIONS,
+
+    // interfaces
+    IOMessageFileWrite,
 }
 
 export default PluridocApp;
