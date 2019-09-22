@@ -198,10 +198,10 @@ class PluridocServer implements IPluridocServer {
 
     private handleConnections () {
         this.io.on('connection', (socket: any) => {
-            socket.on(IO_CONNECTIONS.FILE_WRITE, (msg: any) => {
+            socket.on(IO_CONNECTIONS.FILE_WRITE, (message: any) => {
                 // given the filename and planeId
                 // modify document
-                console.log(msg);
+                console.log(message);
             });
 
             socket.on(IO_CONNECTIONS.NEW_PLURID, async (filename: string) => {
