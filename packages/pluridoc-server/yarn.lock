@@ -401,13 +401,13 @@
     "@plurid/plurid-engine" "^0.1.8"
     "@plurid/plurid-pubsub" "^0.1.1"
 
-"@plurid/pluridoc-app@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.3.tgz#d442d709f7fa38e76b51c2e8a6c367cbe0665371"
-  integrity sha512-5rywBow1zozB4UGIqSzFhSEBFvV6AbfV+dBRpjMqNg2r0kxFY/l+37GLrygdUogZX2jQ+kgxEAau3J/lYRmM+A==
+"@plurid/pluridoc-app@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.4.tgz#7b112510abccc2b721273f9cd0065427c627e601"
+  integrity sha512-3P/nESlofSzzY836gKTyiC+4haYMxmRcFc4qi/+Tgi7HoO/qcMLFbletTicdm17OcyQk45VtO2SmW0uqWk14KA==
   dependencies:
     "@plurid/plurid-react" "^0.1.12"
-    "@plurid/pluridoc-parser" "*"
+    "@plurid/pluridoc-parser" "^0.0.5"
     immutable "^4.0.0-rc.12"
     react "^16.9.0"
     react-dom "^16.9.0"
@@ -418,11 +418,6 @@
     slate-react "^0.22.8"
     style-loader "^1.0.0"
     styled-components "^4.3.2"
-
-"@plurid/pluridoc-parser@*":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.1.tgz#2a28f418a360654f9d4919450534140a64b02df5"
-  integrity sha512-ex53cbnwpDfH7TiSkGfOoizHjDYUg+7Itf0XaTRskwHRAbm3idpiXA8LBM51NJjbLrtq1zpl4X5Iiq+m2KlQmA==
 
 "@plurid/pluridoc-parser@^0.0.5":
   version "0.0.5"
