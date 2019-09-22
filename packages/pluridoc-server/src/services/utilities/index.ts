@@ -1,10 +1,11 @@
 import fs from 'fs';
+import crypto from 'crypto';
 
 import portscanner from 'portscanner';
 import archiver from 'archiver';
 
 import {
-    PluridocPlane
+    PluridocPlane,
     pluridocDataToPluridocString,
 } from '@plurid/pluridoc-parser';
 
@@ -89,7 +90,6 @@ export const createPluridocFile = async (filename: string) => {
 }
 
 
-
 export const checkAndSetContentIDs = async (
     content: PluridocPlane[],
     filePath: string,
@@ -97,14 +97,19 @@ export const checkAndSetContentIDs = async (
     const updatedContent = content.map(plane => {
         if (!plane.metadata.id) {
             const newPlane = { ...plane };
-            newPlane.metadata.id = 'uuid';
+            const id = crypto.randomBytes(16).toString('hex');
+            newPlane.metadata.id = 'pluridoc-plane-' + id;
             return newPlane;
         }
         return plane;
     });
 
     const pluridocString = pluridocDataToPluridocString(updatedContent);
-    // write pluridocString to filePath
+    fs.writeFile(filePath, pluridocString, (err) => {
+        if (err) {
+            return console.log(err);
+        }
+    });
 
     return updatedContent;
 }
