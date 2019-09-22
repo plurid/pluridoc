@@ -1,6 +1,6 @@
 {
     "name": "@plurid/pluridoc-app",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "",
     "keywords": [
         "plurid",
@@ -23,18 +23,17 @@
         "node": ">=6.0.0"
     },
     "scripts": {
-        "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+        "prepublishOnly": "yarn build",
         "prebuild": "rimraf dist",
-        "build": "yarn build.client && tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src && yarn build.removeSpecs",
-        "build.dev": "yarn build.client && tsc --module commonjs && rollup -c rollup.config.ts && yarn build.removeSpecs",
-        "build.removeSpecs": "rm -rf `find ./dist/ -type d -name __specs__`",
-        "build.client": "webpack --config webpack.config.js",
-        "start": "rollup -c rollup.config.ts -w",
         "spec": "jest --coverage",
         "spec:watch": "jest --coverage --watch",
         "spec:prod": "npm run lint && npm run spec -- --no-cache",
         "report-coverage": "cat ./coverage/lcov.info | coveralls",
-        "prepublishOnly": "yarn build"
+        "start": "rollup -c rollup.config.ts -w",
+        "build": "yarn build.client && tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src && yarn build.removeSpecs",
+        "build.dev": "yarn build.client && tsc --module commonjs && rollup -c rollup.config.ts && yarn build.removeSpecs",
+        "build.removeSpecs": "rm -rf `find ./dist/ -type d -name __specs__`",
+        "build.client": "webpack --config webpack.config.js"
     },
     "jest": {
         "transform": {
