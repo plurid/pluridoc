@@ -6,7 +6,9 @@ import open from 'open';
 import socket from 'socket.io';
 
 import PluridocParser from '@plurid/pluridoc-parser';
-import PluridocApp from '@plurid/pluridoc-app';
+import PluridocApp, {
+    IO_CONNECTIONS,
+} from '@plurid/pluridoc-app';
 
 import {
     PluridocServer as IPluridocServer,
@@ -20,10 +22,6 @@ import {
     PLURIDOC_EXTENSION,
     FAVICON,
 } from '../../data/constants';
-
-import {
-    ioConnections,
-} from '../../data/enumerations';
 
 import {
     defaultServerStartOptions,
@@ -200,18 +198,18 @@ class PluridocServer implements IPluridocServer {
 
     private handleConnections () {
         this.io.on('connection', (socket: any) => {
-            socket.on(ioConnections.FILE_WRITE, (msg: any) => {
+            socket.on(IO_CONNECTIONS.FILE_WRITE, (msg: any) => {
                 // given the filename and planeId
                 // modify document
                 console.log(msg);
             });
 
-            socket.on(ioConnections.NEW_PLURID, async (filename: string) => {
+            socket.on(IO_CONNECTIONS.NEW_PLURID, async (filename: string) => {
                 console.log('create new plurid', filename);
                 await this.newPlurid(filename);
             });
 
-            socket.on(ioConnections.NEW_PLURIDOC, async (filename: string) => {
+            socket.on(IO_CONNECTIONS.NEW_PLURIDOC, async (filename: string) => {
                 console.log('create new pluridoc', filename);
                 await this.newPluridoc(filename);
             });
