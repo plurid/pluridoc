@@ -1,4 +1,4 @@
-export interface IPluridocServer {
+export interface PluridocServer {
     start: () => void;
     stop: () => void;
     newPlurid: (filename?: string) => void;
