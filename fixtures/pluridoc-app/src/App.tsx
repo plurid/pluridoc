@@ -41,12 +41,10 @@ const files: any[] = [
 
 const App: React.FC = () => {
     return (
-        <div>
-            <PluridocReactApp
-                content={content}
-                files={files}
-            />
-        </div>
+        <PluridocReactApp
+            content={content}
+            files={files}
+        />
     );
 }
 

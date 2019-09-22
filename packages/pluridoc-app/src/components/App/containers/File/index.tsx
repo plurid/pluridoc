@@ -41,12 +41,10 @@ const File: React.FC<FileOwnProperties> = (properties) => {
     };
 
     return (
-        <div>
-            <PluridApp
-                pages={pages}
-                configuration={appConfiguration}
-            />
-        </div>
+        <PluridApp
+            pages={pages}
+            configuration={appConfiguration}
+        />
     );
 }
 
