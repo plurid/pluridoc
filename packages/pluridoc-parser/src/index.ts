@@ -10,6 +10,7 @@ import {
 
 import {
     pluridocDataToPluridocString,
+    updatePluridPlaneWithID,
 } from './services/utilities';
 
 
@@ -23,6 +24,7 @@ export {
 
     // utilities
     pluridocDataToPluridocString,
+    updatePluridPlaneWithID,
 }
 
 export default PluridocParser;
