@@ -9,30 +9,30 @@ import PluridocParser from '@plurid/pluridoc-parser';
 import PluridocApp from '@plurid/pluridoc-app';
 
 import {
-    IPluridocServer,
+    PluridocServer as IPluridocServer,
     PluridocServerOptions,
     PluridocServerStartOptions,
-} from '../../interfaces';
+} from '../../data/interfaces';
 
 import {
     DEFAULT_PLURID_PORT,
     PLURID_EXTENSION,
     PLURIDOC_EXTENSION,
     FAVICON,
-} from '../../constants';
+} from '../../data/constants';
 
 import {
     ioConnections,
-} from '../../enumerations';
+} from '../../data/enumerations';
 
 import {
     defaultServerStartOptions,
-} from '../../data';
+} from '../../data/defaults';
 
 import {
     checkAvailablePort,
     createPluridocFile,
-} from '../../utilities';
+} from '../../services/utilities';
 
 
 

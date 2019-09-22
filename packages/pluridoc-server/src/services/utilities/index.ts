@@ -5,7 +5,7 @@ import archiver from 'archiver';
 
 import {
     PLURIDOC_EXTENSION,
-} from '../constants';
+} from '../../data/constants';
 
 
 
