@@ -1,11 +1,11 @@
 import {
     IPluridocParser,
-    Plane,
-} from '../../interfaces';
+    PluridocPlane,
+} from '../../data/interfaces';
 
 import {
-    pluridPlaneStartRE,
-    pluridPlaneEndRE,
+    pluridocPlaneStartRE,
+    pluridocPlaneEndRE,
     metadataLocationRE,
     metadataProcessorRE,
     metadataIdRE,
@@ -13,14 +13,14 @@ import {
 } from '../../data/regex';
 
 import {
-    escapePluridPlaneDividers,
-} from '../../utilities';
+    escapePluridocPlaneDividers,
+} from '../../services/utilities';
 
 
 
 class PluridocParser implements IPluridocParser {
     private data: string;
-    private planes: Plane[] = [];
+    private planes: PluridocPlane[] = [];
 
     constructor(data: string) {
         this.data = data;
@@ -44,7 +44,7 @@ class PluridocParser implements IPluridocParser {
 
         for (const line of lines) {
             let isContent = true;
-            const start = pluridPlaneStartRE.test(line);
+            const start = pluridocPlaneStartRE.test(line);
             if (start) {
                 setStart = true;
                 isContent = false;
@@ -55,7 +55,7 @@ class PluridocParser implements IPluridocParser {
                 }
             }
 
-            const end = pluridPlaneEndRE.test(line);
+            const end = pluridocPlaneEndRE.test(line);
             if (end) {
                 setStart = false;
                 isContent = false;
@@ -87,7 +87,7 @@ class PluridocParser implements IPluridocParser {
     }
 
     private extractPlaneObject = (plane: string[]) => {
-        const planeObject: Plane = {
+        const planeObject: PluridocPlane = {
             text: [],
             metadata: {},
         }
@@ -96,19 +96,19 @@ class PluridocParser implements IPluridocParser {
 
         for (const line of plane) {
             let setStart = false;
-            const start = pluridPlaneStartRE.test(line);
+            const start = pluridocPlaneStartRE.test(line);
             if (start) {
                 setStart = true;
                 planeStart = true;
             }
 
-            const end = pluridPlaneEndRE.test(line);
+            const end = pluridocPlaneEndRE.test(line);
             if (end) {
                 planeStart = false;
             }
 
             if (planeStart && !setStart) {
-                let _line = escapePluridPlaneDividers(line);
+                let _line = escapePluridocPlaneDividers(line);
                 planeObject.text.push(_line);
             }
 
