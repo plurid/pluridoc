@@ -29,26 +29,13 @@ const File: React.FC<FileOwnProperties> = (properties) => {
         pages.push(page);
     }
 
-    console.log(pages);
+    // console.log(pages);
 
     return (
         <div>
             <PluridApp
                 pages={pages}
             />
-
-            {/* {content && content.map((planeContent: any) => {
-                return (
-                    <div
-                        key={Math.random()*10000 + ''}
-                        className="plurid-plane"
-                    >
-                        <Editor
-                            content={planeContent}
-                        />
-                    </div>
-                );
-            })} */}
         </div>
     );
 }
