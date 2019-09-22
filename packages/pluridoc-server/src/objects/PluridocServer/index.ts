@@ -8,6 +8,7 @@ import socket from 'socket.io';
 import PluridocParser from '@plurid/pluridoc-parser';
 import PluridocApp, {
     IO_CONNECTIONS,
+    IOMessageFileWrite,
 } from '@plurid/pluridoc-app';
 
 import {
@@ -198,10 +199,40 @@ class PluridocServer implements IPluridocServer {
 
     private handleConnections () {
         this.io.on('connection', (socket: any) => {
-            socket.on(IO_CONNECTIONS.FILE_WRITE, (message: any) => {
-                // given the filename and planeId
-                // modify document
-                console.log(message);
+            socket.on(IO_CONNECTIONS.FILE_WRITE, (message: IOMessageFileWrite) => {
+                const {
+                    content,
+                    filename,
+                    pluridPlaneID,
+                } = message;
+
+                const contentParsed = JSON.parse(content);
+                const { nodes } = contentParsed.document;
+                const lines: string[] = [];
+                nodes.map((node: any) => {
+                    if (node.type === 'paragraph') {
+                        lines.push(node.nodes[0].text);
+                    }
+                });
+
+                const contentString = lines.join('\n');
+
+                // read the file with filename,
+                const activeFilepath = path.join(process.cwd(), filename);
+
+                const text = fs.readFileSync(activeFilepath, 'utf8');
+
+                // get the pluridPlane with the pluridPlaneID
+                // write the contentString;
+
+                console.log(contentString);
+                console.log(text);
+
+                // console.log(content);
+                // console.log(contentParsed);
+                // console.log(lines);
+                // console.log(filename);
+                // console.log(pluridPlaneID);
             });
 
             socket.on(IO_CONNECTIONS.NEW_PLURID, async (filename: string) => {
