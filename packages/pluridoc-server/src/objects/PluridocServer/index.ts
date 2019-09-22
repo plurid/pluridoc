@@ -5,7 +5,9 @@ import path from 'path';
 import open from 'open';
 import socket from 'socket.io';
 
-import PluridocParser from '@plurid/pluridoc-parser';
+import PluridocParser, {
+    updatePluridPlaneWithID,
+} from '@plurid/pluridoc-parser';
 import PluridocApp, {
     IO_CONNECTIONS,
     IOMessageFileWrite,
@@ -222,12 +224,12 @@ class PluridocServer implements IPluridocServer {
 
                 const text = fs.readFileSync(activeFilepath, 'utf8');
 
-                // get the pluridPlane with the pluridPlaneID
-                // write the contentString;
+                const updatedText = updatePluridPlaneWithID(text, pluridPlaneID, contentString);
 
-                console.log(contentString);
-                console.log(text);
+                fs.writeFileSync(activeFilepath, updatedText);
 
+                // console.log(contentString);
+                // console.log(text);
                 // console.log(content);
                 // console.log(contentParsed);
                 // console.log(lines);
