@@ -9,12 +9,22 @@ import {
     IO_CONNECTIONS,
 } from '../../../../data/enumerations';
 
+import {
+    PluridocPlane,
+} from '@plurid/pluridoc-parser';
 
 
-const Editor: React.FC<any> = (properties) => {
+
+interface EditorProperties {
+    filename: string;
+    content: PluridocPlane;
+}
+
+const Editor: React.FC<EditorProperties> = (properties) => {
     const socket = io();
 
     const {
+        filename,
         content,
     } = properties;
 
@@ -50,8 +60,13 @@ const Editor: React.FC<any> = (properties) => {
     const [value, setValue] = useState(Value.fromJSON({...initialValue}));
 
     const onChange = (props: any) => {
-        const content = JSON.stringify(props.value.toJSON());
-        socket.emit(IO_CONNECTIONS.FILE_WRITE, content);
+        const contentValue = JSON.stringify(props.value.toJSON());
+        const fileWrite = {
+            content: contentValue,
+            filename,
+            pluridPlaneID: content.metadata.id,
+        };
+        socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(props.value);
     }
 

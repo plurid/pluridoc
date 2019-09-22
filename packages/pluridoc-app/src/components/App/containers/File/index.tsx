@@ -3,28 +3,38 @@ import React from 'react';
 import Editor from '../../components/Editor';
 
 import PluridApp, {
+    PluridPage,
     PluridConfiguration,
 } from '@plurid/plurid-react';
+
+import {
+    PluridocPlane,
+} from '@plurid/pluridoc-parser';
 
 
 
 interface FileOwnProperties {
-    content: any;
+    filename: string;
+    content: PluridocPlane[];
 }
 
 const File: React.FC<FileOwnProperties> = (properties) => {
     const {
+        filename,
         content,
     } = properties;
 
-    // process content into a PluridApp specific data structure
-    // and pass it as prop
-    const pages: any[] = [];
+    const pages: PluridPage[] = [];
     for (let planeContent of content) {
         const page = {
-            path: Math.random()*10000 + '',
+            path: '/' + planeContent.metadata.id,
             component: {
-                element: () => (<Editor content={planeContent} />)
+                element: () => (
+                    <Editor
+                        content={planeContent}
+                        filename={filename}
+                    />
+                ),
             },
             root: true,
         }
