@@ -30,7 +30,7 @@ import {
 import {
     checkAvailablePort,
     createPluridocFile,
-    checkContentIDs,
+    checkAndSetContentIDs,
 } from '../../services/utilities';
 
 
@@ -53,8 +53,6 @@ class PluridocServer implements IPluridocServer {
         }
 
         this.server = http.createServer((req, res) => {
-            // console.log('request arrived for', req.url);
-
             if (req.url === '/favicon.ico') {
                 res.writeHead(200, {'Content-Type': 'image/x-icon'} );
                 fs.createReadStream(FAVICON).pipe(res);
@@ -151,7 +149,7 @@ class PluridocServer implements IPluridocServer {
         open(filelink);
     }
 
-    private handleFiles (req: any, res: any) {
+    private async handleFiles (req: any, res: any) {
         const requestedFile = req.url;
         const requestedFilePath = process.cwd() + requestedFile;
         // console.log('requestedFilePath', requestedFilePath);
@@ -184,7 +182,7 @@ class PluridocServer implements IPluridocServer {
                 const text = fs.readFileSync(requestedFilePath, 'utf8');
                 const pluridocParser = new PluridocParser(text);
                 const content = pluridocParser.getPlanesContent();
-                const contentIDed = checkContentIDs(content);
+                const contentIDed = await checkAndSetContentIDs(content, requestedFilePath);
 
                 const pluridocApp = new PluridocApp(contentIDed, requestedFile);
                 const pluridocAppHTML = pluridocApp.render();

@@ -3,7 +3,10 @@ import fs from 'fs';
 import portscanner from 'portscanner';
 import archiver from 'archiver';
 
-import { PluridocPlane } from '@plurid/pluridoc-parser';
+import {
+    PluridocPlane
+    pluridocDataToPluridocString,
+} from '@plurid/pluridoc-parser';
 
 import {
     PLURIDOC_EXTENSION,
@@ -87,6 +90,21 @@ export const createPluridocFile = async (filename: string) => {
 
 
 
-export const checkContentIDs = (content: PluridocPlane[]) => {
-    return content;
+export const checkAndSetContentIDs = async (
+    content: PluridocPlane[],
+    filePath: string,
+): Promise<PluridocPlane[]> => {
+    const updatedContent = content.map(plane => {
+        if (!plane.metadata.id) {
+            const newPlane = { ...plane };
+            newPlane.metadata.id = 'uuid';
+            return newPlane;
+        }
+        return plane;
+    });
+
+    const pluridocString = pluridocDataToPluridocString(updatedContent);
+    // write pluridocString to filePath
+
+    return updatedContent;
 }
