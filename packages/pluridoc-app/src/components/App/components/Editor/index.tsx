@@ -5,6 +5,10 @@ import React, {
 import { Editor as SlateEditor } from 'slate-react';
 import { Value } from 'slate';
 
+import {
+    IO_CONNECTIONS,
+} from '../../../../data/enumerations';
+
 
 
 const Editor: React.FC<any> = (properties) => {
@@ -47,11 +51,7 @@ const Editor: React.FC<any> = (properties) => {
 
     const onChange = (props: any) => {
         const content = JSON.stringify(props.value.toJSON());
-        // const jsonValue = JSON.stringify(value.toJSON());
-        // console.log(content);
-        // console.log(jsonValue);
-        // console.log('---');
-        socket.emit('writing', content);
+        socket.emit(IO_CONNECTIONS.FILE_WRITE, content);
         setValue(props.value);
     }
 

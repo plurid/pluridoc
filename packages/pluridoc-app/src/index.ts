@@ -1,9 +1,16 @@
 import PluridocApp from './objects/PluridocApp';
 
-import _ReactApp from './components/App';
+import PluridocAppComponent from './components/App';
+
+import {
+    IO_CONNECTIONS,
+} from './data/enumerations';
 
 
 
-export const PluridocReactApp: any = _ReactApp;
+export {
+    PluridocAppComponent,
+    IO_CONNECTIONS,
+}
 
 export default PluridocApp;
