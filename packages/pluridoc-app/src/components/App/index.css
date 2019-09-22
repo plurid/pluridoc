@@ -18,11 +18,3 @@ body {
     display: grid;
     place-content: center;
 }
-
-.plurid-plane {
-    background-color: hsl(220, 10%, 20%);
-    margin: 30px;
-    padding: 20px;
-    font-size: 14px;
-    line-height: 1.4;
-}
