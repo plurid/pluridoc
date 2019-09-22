@@ -10,6 +10,10 @@ import {
 } from '../../../../data/enumerations';
 
 import {
+    IOMessageFileWrite,
+} from '../../../../data/interfaces';
+
+import {
     PluridocPlane,
 } from '@plurid/pluridoc-parser';
 
@@ -60,11 +64,11 @@ const Editor: React.FC<EditorProperties> = (properties) => {
     const [value, setValue] = useState(Value.fromJSON({...initialValue}));
 
     const onChange = (props: any) => {
-        const contentValue = JSON.stringify(props.value.toJSON());
-        const fileWrite = {
-            content: contentValue,
+        const contentString = JSON.stringify(props.value.toJSON());
+        const fileWrite: IOMessageFileWrite = {
+            content: contentString,
             filename,
-            pluridPlaneID: content.metadata.id,
+            pluridPlaneID: content.metadata.id || '',
         };
         socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(props.value);
