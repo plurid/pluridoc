@@ -68,7 +68,7 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
                                             key={file}
                                         >
                                             <li>
-                                                    {file}
+                                                {file}
                                             </li>
                                         </a>
                                     )
@@ -79,9 +79,7 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
 
                     <StyledDashboardCreate>
                         <Styles.Button
-                            onClick={() => {
-                                showFileCreation ? createFile() : setShowFileCreation(true);
-                            }}
+                            onClick={() => setShowFileCreation(true)}
                         >
                             Create a New File
                         </Styles.Button>
