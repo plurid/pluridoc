@@ -9,6 +9,8 @@ import {
 
 import ToolbarButton from '../Button';
 
+import AddIcon from '../../../assets/add-icon';
+
 import { Theme } from '@plurid/apps.utilities.themes';
 
 
@@ -23,6 +25,7 @@ const Toolbar: React.FC<ToolbarProperties> = (properties) => {
 
     const {
         theme,
+        newPluridPlane,
     } = properties;
 
     return (
@@ -33,7 +36,18 @@ const Toolbar: React.FC<ToolbarProperties> = (properties) => {
             <StyledToolbarButtons
                 theme={theme}
             >
-
+                <ToolbarButton
+                    atClick={newPluridPlane}
+                    image={AddIcon}
+                    scaleImage={true}
+                    text="new plurid plane"
+                    textLeft={true}
+                    showText={true}
+                    first={true}
+                    last={true}
+                    active={false}
+                    theme={theme}
+                />
             </StyledToolbarButtons>
         </StyledToolbar>
     );
