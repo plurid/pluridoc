@@ -4,7 +4,7 @@ import PluridocAppComponent from './components/App';
 
 import {
     IO_CONNECTIONS,
-} from './data/enumerations';
+} from './components/App/data/enumerations';
 
 import {
     IOMessageFileWrite,

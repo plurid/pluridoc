@@ -18,7 +18,7 @@ import Context from '../../services/utilities/context';
 
 import {
     IO_CONNECTIONS,
-} from '../../../../data/enumerations';
+} from '../../data/enumerations';
 
 
 

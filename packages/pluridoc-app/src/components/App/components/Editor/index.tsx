@@ -7,7 +7,7 @@ import { Value } from 'slate';
 
 import {
     IO_CONNECTIONS,
-} from '../../../../data/enumerations';
+} from '../../data/enumerations';
 
 import {
     IOMessageFileWrite,
