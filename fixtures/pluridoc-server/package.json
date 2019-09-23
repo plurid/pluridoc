@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-        "@plurid/pluridoc-server": "^0.0.4",
+        "@plurid/pluridoc-server": "^0.0.5",
         "jsdom": "^15.1.1",
         "jsdom-global": "^3.0.2"
     }
