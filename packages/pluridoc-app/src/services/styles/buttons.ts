@@ -12,20 +12,19 @@ export const StyledButton = styled.button`
     cursor: pointer;
     display: grid;
     place-content: center;
-    border-radius: 50px;
-    font-size: 15px;
-    font-weight: bold;
-    height: 50px;
-    background-color: hsl(247, 19%, 29%);
-    box-shadow: 0px 10px 10px 0px hsla(220, 40%, 5%, 0.5);
+    border-radius: 22.5px;
+    font-size: 13px;
+    height: 45px;
+    background-color: hsl(220, 10%, 20%);
+    box-shadow: 0px 10px 10px 0px hsla(220, 10%, 5%, 0.5);
     transition: box-shadow 200ms linear;
 
     :hover {
-        background-color: hsl(247, 19%, 39%);
+        background-color: hsl(220, 10%, 10%);
     }
 
     :active {
-        box-shadow: 0px 3px 3px 0px hsla(220, 40%, 5%, 0.5);
+        box-shadow: 0px 3px 3px 0px hsla(220, 10%, 5%, 0.5);
     }
 `;
 
