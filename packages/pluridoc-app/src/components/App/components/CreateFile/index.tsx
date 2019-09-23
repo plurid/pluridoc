@@ -16,6 +16,10 @@ import Styles from '../../services/styles';
 
 import Context from '../../services/utilities/context';
 
+import {
+    IO_CONNECTIONS,
+} from '../../../../data/enumerations';
+
 
 
 interface CreateFileProperties {
@@ -23,6 +27,8 @@ interface CreateFileProperties {
 }
 
 const CreateFile: React.FC<CreateFileProperties> = (properties) => {
+    const socket = io();
+
     const context = useContext(Context);
 
     const {
@@ -36,6 +42,16 @@ const CreateFile: React.FC<CreateFileProperties> = (properties) => {
     const [filename, setFilename] = useState('');
 
     const [pluridFile, setPluridFile] = useState(true);
+
+    const createFile = () => {
+        if (filename) {
+            if (pluridFile) {
+                socket.emit(IO_CONNECTIONS.NEW_PLURID, filename);
+            } else {
+                socket.emit(IO_CONNECTIONS.NEW_PLURIDOC, filename);
+            }
+        }
+    }
 
     return (
         <StyledCreateFile>
@@ -100,7 +116,7 @@ const CreateFile: React.FC<CreateFileProperties> = (properties) => {
                 </Styles.LinkButton>
 
                 <Styles.Button
-                    onClick={cancel}
+                    onClick={createFile}
                 >
                     Create File
                 </Styles.Button>
