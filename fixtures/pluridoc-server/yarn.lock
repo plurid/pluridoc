@@ -153,10 +153,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-pubsub/-/plurid-pubsub-0.1.1.tgz#6248fa35904dec2bf00204f9db1491948fc0116c"
   integrity sha512-MlNqKoTkl3R0I0KeriX3JTDpT5NinZNcNv86jQOtJ0hG9wFG5kuD8Y/ej5/KPRYrj0mUvVeBjgMnRPbZ3fB5/w==
 
-"@plurid/plurid-react@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.14.tgz#9c4ee59d70e0a18a8308dc812201ee60627fbc3d"
-  integrity sha512-dN1mlyuG66Doe1k0jv2j71LsjmYfNubIKghho0IfunjX/zTMvxNwl0E3QhMzhIUZD41eL5YCv/s6BP6lwL7lXA==
+"@plurid/plurid-react@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.15.tgz#c4ed49380ceb9d348577e849d81edc793b02bbe1"
+  integrity sha512-Ts7BQGlvIZqDjqAcpuKJrPn5YDv9U5i3BT6z2STYsW53pE3C6xpLxjh6SeP3jkV6w1k2Llp3zkuck+X+7BY+RQ==
   dependencies:
     "@plurid/apps.utilities.functions" "^0.1.2"
     "@plurid/apps.utilities.themes" "^0.1.15"
@@ -164,13 +164,13 @@
     "@plurid/plurid-engine" "^0.1.8"
     "@plurid/plurid-pubsub" "^0.1.1"
 
-"@plurid/pluridoc-app@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.6.tgz#8c421a90e5e49f27a1748575795938744bd05bce"
-  integrity sha512-S4YGqi7kW4KlqTYdwYicly4NJNxWmIs5/re/1cE3nnWo0QDK3IH3UOopttXzgsbcGlY/44GuSbAyYa4lGTfJXg==
+"@plurid/pluridoc-app@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.7.tgz#d72e64338b9c4ebb07fa835e2f24830d92702eb3"
+  integrity sha512-oU55Gs+t39ZnjasMT6BaIleYcQUm9tMTEfhNV8pAZKOQglc/qwXOCmqu+U8NQqSNBXP4WLEh51sYJUJNl65E3Q==
   dependencies:
     "@plurid/apps.utilities.themes" "^0.1.15"
-    "@plurid/plurid-react" "^0.1.14"
+    "@plurid/plurid-react" "^0.1.15"
     "@plurid/pluridoc-parser" "^0.0.7"
     immutable "^4.0.0-rc.12"
     react "^16.9.0"
@@ -188,12 +188,12 @@
   resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.7.tgz#a230a992ae15aedc86e0d479d89ebf1007dc1378"
   integrity sha512-s+MFe5z3O49C4X6xBV1Ldf6qTHQvvgIOVuVGQW/VJG5x5MOk6EqyBQ3nF23amrbKFn8b0k6dzmi/fWjro2XKkA==
 
-"@plurid/pluridoc-server@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-server/-/pluridoc-server-0.0.5.tgz#0c27bdf85f5133414ae7d7f527b6504fa809ab84"
-  integrity sha512-/OKf2/o5XXn2uTtsBiA2BqYqFc9f7ZobSr9YxAnwddxFNbgTQDrYMRLvEl11z7zeMWdjE72XOYsNTQZaidj5jQ==
+"@plurid/pluridoc-server@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-server/-/pluridoc-server-0.0.6.tgz#a584ab4666ff4f352db68986f9f26a60232b8735"
+  integrity sha512-C3m4hYe2624DUrMyjHNNnzwlfSJA3ycv8pO0OE5cU+tv8/j8j1fC2skTrNX3BJFFLpfmm/m3SxOiG8PGP0afnQ==
   dependencies:
-    "@plurid/pluridoc-app" "^0.0.6"
+    "@plurid/pluridoc-app" "^0.0.7"
     "@plurid/pluridoc-parser" "^0.0.7"
     archiver "^3.1.1"
     open "^6.4.0"
