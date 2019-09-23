@@ -30,10 +30,6 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
         files,
     } = properties;
 
-    const createFile = () => {
-        console.log('create new plurid file');
-    }
-
     return (
         <StyledDashboard>
             <StyledDashboardTitle>

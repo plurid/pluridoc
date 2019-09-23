@@ -1,6 +1,14 @@
 import React from 'react';
 
+import {
+    StyledToolbar,
+} from './styled';
+
 import Editor from '../../components/Editor';
+
+import {
+    IO_CONNECTIONS,
+} from '../../data/enumerations';
 
 import PluridApp, {
     PluridPage,
@@ -19,10 +27,16 @@ interface FileOwnProperties {
 }
 
 const File: React.FC<FileOwnProperties> = (properties) => {
+    const socket = io();
+
     const {
         filename,
         content,
     } = properties;
+
+    const newPluridPlane = () => {
+        socket.emit(IO_CONNECTIONS.NEW_PLURID_PLANE, filename);
+    }
 
     const pages: PluridPage[] = [];
     for (let planeContent of content) {
@@ -51,10 +65,20 @@ const File: React.FC<FileOwnProperties> = (properties) => {
     };
 
     return (
-        <PluridApp
-            pages={pages}
-            configuration={appConfiguration}
-        />
+        <>
+            <PluridApp
+                pages={pages}
+                configuration={appConfiguration}
+            />
+
+            <StyledToolbar>
+                <button
+                    onClick={newPluridPlane}
+                >
+                    New Plurid Plane
+                </button>
+            </StyledToolbar>
+        </>
     );
 }
 
