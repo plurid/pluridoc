@@ -6,6 +6,7 @@ export const StyledToolbarButton: any = styled.div`
     position: relative;
     cursor: pointer;
     height: 40px;
+    width: 100%;
     display: grid;
     place-content: center;
     transition: transform 50ms ease-in-out;

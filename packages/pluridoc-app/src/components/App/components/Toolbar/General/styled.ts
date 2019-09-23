@@ -27,7 +27,6 @@ export const StyledToolbarButtons: any = styled.div`
     justify-items: center;
     grid-template-columns: 1fr;
     border-radius: 22.5px;
-    margin: 0 auto;
     font-size: 12px;
     opacity: 1;
     width: 30px;
