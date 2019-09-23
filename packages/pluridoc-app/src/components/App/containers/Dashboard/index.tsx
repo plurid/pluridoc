@@ -10,7 +10,11 @@ import {
     StyledFileCreationContainer,
 } from './styled';
 
+import Styles from '../../../../services/styles';
+
 import PluridLogo from '../../assets/plurid-logo.png';
+
+import CreateFile from '../../components/CreateFile';
 
 
 
@@ -71,47 +75,20 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
             </StyledDashboardList>
 
             <StyledDashboardCreate>
-                <button
+                <Styles.Button
                     onClick={() => {
                         showFileCreation ? createFile() : setShowFileCreation(true);
                     }}
                 >
                     Create a New File
-                </button>
+                </Styles.Button>
             </StyledDashboardCreate>
 
             {showFileCreation && (
                 <StyledFileCreationContainer>
-                    <div>
-                        <div>
-                            filename
-                        </div>
-
-                        <input />
-                    </div>
-
-                    <div>
-                        <div>
-                            filetype
-                        </div>
-
-                        <div>
-                            <div>
-                                .plurid
-                            </div>
-                            <div>
-                                .pluridoc
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button
-                            onClick={() => setShowFileCreation(false)}
-                        >
-                            Cancel
-                        </button>
-                    </div>
+                    <CreateFile
+                        cancel={() => setShowFileCreation(false)}
+                    />
                 </StyledFileCreationContainer>
             )}
         </StyledDashboard>
