@@ -6,7 +6,7 @@ export const StyledSwitch = styled.label`
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
+    height: 32px;
 
     input {
         opacity: 0;
@@ -32,7 +32,7 @@ export const StyledSwitch = styled.label`
         height: 26px;
         width: 26px;
         left: 4px;
-        bottom: 4px;
+        bottom: 3px;
         background-color: white;
         -webkit-transition: .4s;
         transition: .4s;
@@ -57,7 +57,7 @@ export const StyledSwitch = styled.label`
 
     /* Rounded sliders */
     .slider.round {
-        border-radius: 34px;
+        border-radius: 32px;
     }
 
     .slider.round:before {
@@ -74,15 +74,19 @@ export const StyledInputText: any = styled.input`
         return props.theme.colorPrimary;
     }};
 
+    box-sizing: border-box;
     box-shadow: inset 0px 1px 2px black;
     width: 100%;
     height: 32px;
+    padding: 0 16px;
     border-radius: 21px;
     font-size: 14px;
     outline: none;
     border: none;
     transition: box-shadow 300ms linear;
     font-size: 0.8rem;
+    font-family: Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     ::placeholder {
         color: ${(props: any) => {
