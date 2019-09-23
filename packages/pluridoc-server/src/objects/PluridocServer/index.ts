@@ -218,32 +218,17 @@ class PluridocServer implements IPluridocServer {
                 });
 
                 const contentString = lines.join('\n');
-
-                // read the file with filename,
                 const activeFilepath = path.join(process.cwd(), filename);
-
                 const text = fs.readFileSync(activeFilepath, 'utf8');
-
                 const updatedText = updatePluridPlaneWithID(text, pluridPlaneID, contentString);
-
                 fs.writeFileSync(activeFilepath, updatedText);
-
-                // console.log(contentString);
-                // console.log(text);
-                // console.log(content);
-                // console.log(contentParsed);
-                // console.log(lines);
-                // console.log(filename);
-                // console.log(pluridPlaneID);
             });
 
             socket.on(IO_CONNECTIONS.NEW_PLURID, async (filename: string) => {
-                console.log('create new plurid', filename);
                 await this.newPlurid(filename);
             });
 
             socket.on(IO_CONNECTIONS.NEW_PLURIDOC, async (filename: string) => {
-                console.log('create new pluridoc', filename);
                 await this.newPluridoc(filename);
             });
         });
