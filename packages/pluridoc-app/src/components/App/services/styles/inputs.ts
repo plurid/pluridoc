@@ -78,8 +78,6 @@ export const StyledInputText: any = styled.input`
     width: 100%;
     height: 32px;
     border-radius: 21px;
-    padding-left: 20px;
-    padding-right: 20px;
     font-size: 14px;
     outline: none;
     border: none;

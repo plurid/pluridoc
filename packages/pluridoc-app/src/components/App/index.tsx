@@ -2,12 +2,16 @@ import React from 'react';
 
 import './index.css';
 
+import Context from './services/utilities/context';
+
 import Dashboard from './containers/Dashboard';
 import File from './containers/File';
 
 import {
     PluridocPlane,
 } from '@plurid/pluridoc-parser';
+
+import themes from '@plurid/apps.utilities.themes';
 
 
 
@@ -24,11 +28,19 @@ const App: React.FC<AppOwnProperties> = (properties) => {
         content,
     } = properties;
 
+    const context = {
+        theme: themes.plurid,
+    }
+
     if (content.length === 0) {
         return (
-            <Dashboard
-                files={files}
-            />
+            <Context.Provider
+                value={context}
+            >
+                <Dashboard
+                    files={files}
+                />
+            </Context.Provider>
         );
     } else {
         return (

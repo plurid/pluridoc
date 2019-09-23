@@ -63,6 +63,7 @@
         ]
     },
     "dependencies": {
+        "@plurid/apps.utilities.themes": "^0.1.12",
         "@plurid/plurid-react": "^0.1.12",
         "@plurid/pluridoc-parser": "^0.0.5",
         "immutable": "^4.0.0-rc.12",
