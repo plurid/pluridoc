@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {
+    useContext,
+    useState,
+} from 'react';
 
 import {
     StyledCreateFile,
+    StyledFilename,
+    StyledFilenameTitle,
+    StyledFilenameInput,
+    StyledFiletype,
+    StyledCancelCreateButtons,
 } from './styled';
+
+import Styles from '../../services/styles';
+
+import Context from '../../services/utilities/context';
 
 
 
@@ -11,42 +23,82 @@ interface CreateFileProperties {
 }
 
 const CreateFile: React.FC<CreateFileProperties> = (properties) => {
+    const context = useContext(Context);
+
+    const {
+        theme,
+    } = context;
+
     const {
         cancel,
     } = properties;
 
+    const [filename, setFilename] = useState('');
+
+    const [pluridFile, setPluridFile] = useState(true);
+
     return (
         <StyledCreateFile>
-            <div>
-                <div>
+            <StyledFilename>
+                <StyledFilenameTitle>
                     filename
-                </div>
+                </StyledFilenameTitle>
 
-                <input />
-            </div>
+                <StyledFilenameInput>
+                    <div
+                        style={{width: '100%'}}
+                    >
+                        <Styles.InputText
+                            theme={theme}
+                            value={filename}
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setFilename(event.target.value)}
+                        />
+                    </div>
 
-            <div>
+                    <div>
+                        {pluridFile
+                            ? (
+                                <div>
+                                    .plurid
+                                </div>
+                            ) : (
+                                <div>
+                                    .pluridoc
+                                </div>
+                            )
+                        }
+                    </div>
+                </StyledFilenameInput>
+            </StyledFilename>
+
+            <StyledFiletype>
                 <div>
                     filetype
                 </div>
 
-                <div>
-                    <div>
-                        .plurid
-                    </div>
-                    <div>
-                        .pluridoc
-                    </div>
-                </div>
-            </div>
+                <Styles.Switch>
+                    <input
+                        type="checkbox"
+                        checked={pluridFile}
+                        onChange={() => setPluridFile(plurid => !plurid)}
+                    />
+                    <span className="slider round" />
+                </Styles.Switch>
+            </StyledFiletype>
 
-            <div>
-                <button
+            <StyledCancelCreateButtons>
+                <Styles.Button
                     onClick={cancel}
                 >
                     Cancel
-                </button>
-            </div>
+                </Styles.Button>
+
+                <Styles.Button
+                    onClick={cancel}
+                >
+                    Create File
+                </Styles.Button>
+            </StyledCancelCreateButtons>
         </StyledCreateFile>
     );
 }

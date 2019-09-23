@@ -10,7 +10,7 @@ import {
     StyledFileCreationContainer,
 } from './styled';
 
-import Styles from '../../../../services/styles';
+import Styles from '../../services/styles';
 
 import PluridLogo from '../../assets/plurid-logo.png';
 

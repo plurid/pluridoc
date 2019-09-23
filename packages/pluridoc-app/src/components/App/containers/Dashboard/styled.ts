@@ -71,13 +71,12 @@ export const StyledDashboardCreate = styled.div`
 
 
 export const StyledFileCreationContainer = styled.div`
-    background: hsl(220, 10%, 20%);
+    background: hsl(220, 10%, 15%);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     display: grid;
-    justify-content: center;
     align-items: center;
     width: 400px;
     height: 100%;
