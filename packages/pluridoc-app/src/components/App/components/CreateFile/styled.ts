@@ -38,5 +38,5 @@ export const StyledCancelCreateButtons = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    margin: 40px 20px;
+    margin: 80px 20px;
 `;

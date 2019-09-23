@@ -80,7 +80,9 @@ const CreateFile: React.FC<CreateFileProperties> = (properties) => {
                     filetype
                 </div>
 
-                <Styles.Switch>
+                <Styles.Switch
+                    theme={theme}
+                >
                     <input
                         type="checkbox"
                         checked={pluridFile}
@@ -91,11 +93,11 @@ const CreateFile: React.FC<CreateFileProperties> = (properties) => {
             </StyledFiletype>
 
             <StyledCancelCreateButtons>
-                <Styles.Button
+                <Styles.LinkButton
                     onClick={cancel}
                 >
                     Cancel
-                </Styles.Button>
+                </Styles.LinkButton>
 
                 <Styles.Button
                     onClick={cancel}

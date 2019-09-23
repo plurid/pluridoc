@@ -4,6 +4,7 @@ import React, {
 
 import {
     StyledDashboard,
+    StyledDashboardFiles,
     StyledDashboardTitle,
     StyledDashboardList,
     StyledDashboardCreate,
@@ -42,47 +43,51 @@ const Dashboard: React.FC<DashboardOwnProperties> = (properties) => {
                 </h1>
             </StyledDashboardTitle>
 
-            <StyledDashboardList>
-                {files.length > 0 && (
-                    <ul>
-                        <li
-                            style={{
-                                backgroundColor: 'hsl(220, 10%, 15%)',
-                                display: 'flex',
-                                justifyContent: 'center',
+            {!showFileCreation && (
+                <StyledDashboardFiles>
+                    <StyledDashboardList>
+                        {files.length > 0 && (
+                            <ul>
+                                <li
+                                    style={{
+                                        backgroundColor: 'hsl(220, 10%, 15%)',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    files
+                                </li>
+                                {files.map((file: string) => {
+                                    const link = `/${file}`;
+
+                                    return (
+                                        <a
+                                            href={link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            key={file}
+                                        >
+                                            <li>
+                                                    {file}
+                                            </li>
+                                        </a>
+                                    )
+                                })}
+                            </ul>
+                        )}
+                    </StyledDashboardList>
+
+                    <StyledDashboardCreate>
+                        <Styles.Button
+                            onClick={() => {
+                                showFileCreation ? createFile() : setShowFileCreation(true);
                             }}
                         >
-                            files
-                        </li>
-                        {files.map((file: string) => {
-                            const link = `/${file}`;
-
-                            return (
-                                <a
-                                    href={link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    key={file}
-                                >
-                                    <li>
-                                            {file}
-                                    </li>
-                                </a>
-                            )
-                        })}
-                    </ul>
-                )}
-            </StyledDashboardList>
-
-            <StyledDashboardCreate>
-                <Styles.Button
-                    onClick={() => {
-                        showFileCreation ? createFile() : setShowFileCreation(true);
-                    }}
-                >
-                    Create a New File
-                </Styles.Button>
-            </StyledDashboardCreate>
+                            Create a New File
+                        </Styles.Button>
+                    </StyledDashboardCreate>
+                </StyledDashboardFiles>
+            )}
 
             {showFileCreation && (
                 <StyledFileCreationContainer>

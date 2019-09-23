@@ -5,8 +5,16 @@ import styled from 'styled-components';
 export const StyledDashboard = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr 200px;
+    grid-template-rows: 200px 1fr;
     user-select: none;
+`;
+
+
+export const StyledDashboardFiles = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 200px;
+    height: 400px;
 `;
 
 
@@ -71,13 +79,8 @@ export const StyledDashboardCreate = styled.div`
 
 
 export const StyledFileCreationContainer = styled.div`
-    background: hsl(220, 10%, 15%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     display: grid;
     align-items: center;
     width: 400px;
-    height: 100%;
+    height: 400px;
 `;
