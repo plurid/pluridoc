@@ -41,6 +41,5 @@ export const StyledLinkButton = styled.button`
     display: grid;
     place-content: center;
     font-size: 15px;
-    font-weight: bold;
     background: transparent;
 `;
