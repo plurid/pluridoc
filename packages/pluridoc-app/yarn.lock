@@ -486,10 +486,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-pubsub/-/plurid-pubsub-0.1.1.tgz#6248fa35904dec2bf00204f9db1491948fc0116c"
   integrity sha512-MlNqKoTkl3R0I0KeriX3JTDpT5NinZNcNv86jQOtJ0hG9wFG5kuD8Y/ej5/KPRYrj0mUvVeBjgMnRPbZ3fB5/w==
 
-"@plurid/plurid-react@^0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.14.tgz#9c4ee59d70e0a18a8308dc812201ee60627fbc3d"
-  integrity sha512-dN1mlyuG66Doe1k0jv2j71LsjmYfNubIKghho0IfunjX/zTMvxNwl0E3QhMzhIUZD41eL5YCv/s6BP6lwL7lXA==
+"@plurid/plurid-react@^0.1.15":
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.15.tgz#c4ed49380ceb9d348577e849d81edc793b02bbe1"
+  integrity sha512-Ts7BQGlvIZqDjqAcpuKJrPn5YDv9U5i3BT6z2STYsW53pE3C6xpLxjh6SeP3jkV6w1k2Llp3zkuck+X+7BY+RQ==
   dependencies:
     "@plurid/apps.utilities.functions" "^0.1.2"
     "@plurid/apps.utilities.themes" "^0.1.15"
