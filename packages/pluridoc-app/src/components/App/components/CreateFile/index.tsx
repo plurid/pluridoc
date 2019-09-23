@@ -52,6 +52,10 @@ const CreateFile: React.FC<CreateFileProperties> = (properties) => {
                             theme={theme}
                             value={filename}
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setFilename(event.target.value)}
+                            spellCheck={false}
+                            autoCapitalize="false"
+                            autoComplete="false"
+                            autoCorrect="false"
                         />
                     </div>
 
