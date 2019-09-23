@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+    useContext,
+} from 'react';
 
 import {
     StyledToolbar,
@@ -9,6 +11,10 @@ import Editor from '../../components/Editor';
 import {
     IO_CONNECTIONS,
 } from '../../data/enumerations';
+
+import Toolbar from '../../components/Toolbar/General';
+
+import Context from '../../services/utilities/context';
 
 import PluridApp, {
     PluridPage,
@@ -28,6 +34,12 @@ interface FileOwnProperties {
 
 const File: React.FC<FileOwnProperties> = (properties) => {
     const socket = io();
+
+    const context = useContext(Context);
+
+    const {
+        theme,
+    } = context;
 
     const {
         filename,
@@ -71,13 +83,10 @@ const File: React.FC<FileOwnProperties> = (properties) => {
                 configuration={appConfiguration}
             />
 
-            <StyledToolbar>
-                <button
-                    onClick={newPluridPlane}
-                >
-                    New Plurid Plane
-                </button>
-            </StyledToolbar>
+            <Toolbar
+                theme={theme}
+                newPluridPlane={newPluridPlane}
+            />
         </>
     );
 }
