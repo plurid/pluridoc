@@ -231,6 +231,12 @@ class PluridocServer implements IPluridocServer {
             socket.on(IO_CONNECTIONS.NEW_PLURIDOC, async (filename: string) => {
                 await this.newPluridoc(filename);
             });
+
+            socket.on(IO_CONNECTIONS.NEW_PLURID_PLANE, async (filename: string) => {
+                const newPluridPlane = '\n<<<\n\n>>>\n';
+                const filepath = path.join(process.cwd(), filename);
+                fs.appendFileSync(filepath, newPluridPlane);
+            });
         });
     }
 }
