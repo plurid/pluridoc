@@ -64,7 +64,9 @@ export const StyledDashboardList = styled.div`
 
 export const StyledDashboardCreate = styled.div`
     display: grid;
-    place-content: center;
+    align-items: center;
+    width: 200px;
+    margin: 0 auto;
 `;
 
 
