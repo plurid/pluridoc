@@ -83,4 +83,5 @@ export const StyledFileCreationContainer = styled.div`
     align-items: center;
     width: 400px;
     height: 400px;
+    margin: 0 auto;
 `;
