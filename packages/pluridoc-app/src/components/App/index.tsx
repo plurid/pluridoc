@@ -11,7 +11,7 @@ import {
     PluridocPlane,
 } from '@plurid/pluridoc-parser';
 
-import themes from '@plurid/apps.utilities.themes';
+import themes from '@plurid/plurid-themes';
 
 
 
