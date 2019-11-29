@@ -1,9 +1,16 @@
 import React, {
+    useMemo,
     useState,
 } from 'react';
 
-import { Editor as SlateEditor } from 'slate-react';
-import { Value } from 'slate';
+import {
+    createEditor,
+} from 'slate';
+import {
+    Slate,
+    Editable,
+    withReact,
+} from 'slate-react';
 
 import {
     IO_CONNECTIONS,
@@ -26,6 +33,8 @@ interface EditorProperties {
 
 const Editor: React.FC<EditorProperties> = (properties) => {
     const socket = io();
+
+    const editor = useMemo(() => withReact(createEditor()), []);
 
     const {
         filename,
@@ -61,7 +70,8 @@ const Editor: React.FC<EditorProperties> = (properties) => {
 
     const initialValue: any = parseValueFromContent(content);
 
-    const [value, setValue] = useState(Value.fromJSON({...initialValue}));
+    // const [value, setValue] = useState(Value.fromJSON({...initialValue}));
+    const [value, setValue] = useState(initialValue);
 
     const onChange = (props: any) => {
         const contentString = JSON.stringify(props.value.toJSON());
@@ -76,10 +86,14 @@ const Editor: React.FC<EditorProperties> = (properties) => {
 
     return (
         <div>
-            <SlateEditor
-                value={value}
-                onChange={onChange}
-            />
+            <Slate
+                editor={editor}
+                defaultValue={value}
+            >
+                <Editable
+                    onChange={onChange}
+                />
+            </Slate>
         </div>
     );
 }
