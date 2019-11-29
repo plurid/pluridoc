@@ -5,6 +5,7 @@ import React, {
 
 import {
     createEditor,
+    Text,
 } from 'slate';
 import {
     Slate,
@@ -46,12 +47,11 @@ const Editor: React.FC<EditorProperties> = (properties) => {
 
         for (let i = 0; i < content.text.length; i++) {
             const textNode = {
-                object: 'block',
                 type: 'paragraph',
                 nodes: [
                     {
-                        object: 'text',
                         text: content.text[i],
+                        marks: [],
                     },
                 ],
             };
@@ -59,13 +59,13 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             nodes.push(textNode);
         }
 
-        const value = {
-            document: {
-                nodes,
-            },
-        };
+        // const value = {
+        //     document: {
+        //         nodes,
+        //     },
+        // };
 
-        return value;
+        return nodes;
     }
 
     const initialValue: any = parseValueFromContent(content);
