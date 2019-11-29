@@ -11,7 +11,7 @@ import ToolbarButton from '../Button';
 
 import AddIcon from '../../../assets/add-icon';
 
-import { Theme } from '@plurid/apps.utilities.themes';
+import { Theme } from '@plurid/plurid-themes';
 
 
 
