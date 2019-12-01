@@ -29,7 +29,7 @@ const globals = {
 
 
 export default {
-    input: `src/index.ts`,
+    input: `source/index.ts`,
     output: [
         {
             file: pkg.main,
