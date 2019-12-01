@@ -32,8 +32,9 @@ interface EditorProperties {
     content: PluridocPlane;
 }
 
+
 const Editor: React.FC<EditorProperties> = (properties) => {
-    const socket = io();
+    // const socket = io();
 
     const editor = useMemo(() => withReact(createEditor()), []);
 
@@ -48,7 +49,7 @@ const Editor: React.FC<EditorProperties> = (properties) => {
         for (let i = 0; i < content.text.length; i++) {
             const textNode = {
                 type: 'paragraph',
-                nodes: [
+                children: [
                     {
                         text: content.text[i],
                         marks: [],
@@ -59,18 +60,11 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             nodes.push(textNode);
         }
 
-        // const value = {
-        //     document: {
-        //         nodes,
-        //     },
-        // };
-
         return nodes;
     }
 
     const initialValue: any = parseValueFromContent(content);
 
-    // const [value, setValue] = useState(Value.fromJSON({...initialValue}));
     const [value, setValue] = useState(initialValue);
 
     const onChange = (props: any) => {
@@ -80,7 +74,7 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             filename,
             pluridPlaneID: content.metadata.id || '',
         };
-        socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
+        // socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(props.value);
     }
 
