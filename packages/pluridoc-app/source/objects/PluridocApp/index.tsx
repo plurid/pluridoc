@@ -27,7 +27,7 @@ class PluridocApp implements IPluridocApp {
             ? this.filename.slice(1,) + ' | pluridoc'
             : 'pluridoc';
 
-        const clientScriptPath = path.join(__dirname, '../src/client/script.js');
+        const clientScriptPath = path.join(__dirname, '../source/client/script.js');
         const clientScript = fs.readFileSync(clientScriptPath, 'utf8');
 
         return `
