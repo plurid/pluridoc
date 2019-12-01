@@ -7,17 +7,17 @@
         "document",
         "cli"
     ],
-    "main": "dist/pluridoc-cli.umd.js",
-    "module": "dist/pluridoc-cli.es5.js",
-    "typings": "dist/types/index.d.ts",
+    "main": "distribution/pluridoc-cli.umd.js",
+    "module": "distribution/pluridoc-cli.es5.js",
+    "typings": "distribution/types/index.d.ts",
     "files": [
-        "dist",
-        "bin"
+        "distribution",
+        "binary"
     ],
     "bin": {
-        "pluridoc": "bin/pluridoc"
+        "pluridoc": "binary/pluridoc"
     },
-    "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com/)",
+    "author": "Jan Cavel <caveljan@plurid.com> (https://plurid.com)",
     "repository": {
         "type": "git",
         "url": "https://github.com/plurid/pluridoc"
@@ -27,44 +27,21 @@
         "node": ">=6.0.0"
     },
     "scripts": {
-        "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
-        "prebuild": "rimraf dist",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src && yarn build.removeSpecs",
-        "build.dev": "tsc --module commonjs && rollup -c rollup.config.ts && yarn build.removeSpecs",
-        "build.removeSpecs": "rm -rf `find ./dist/ -type d -name __specs__`",
-        "start": "rollup -c rollup.config.ts -w",
+        "clear": "rm -rf ./distribution",
+        "lint": "eslint ./source --ext .ts,.tsx",
         "spec": "jest --coverage",
-        "spec:watch": "jest --coverage --watch",
-        "spec:prod": "npm run lint && npm run spec -- --no-cache",
+        "spec.watch": "jest --coverage --watch",
+        "spec.production": "npm run lint && npm run spec -- --no-cache",
         "report-coverage": "cat ./coverage/lcov.info | coveralls",
+        "typedoc": "typedoc --out documentation --target es6 --theme minimal --mode file source",
+        "tsc.module": "tsc --module commonjs",
+        "rollup.config": "rollup -c rollup.config.ts",
+        "start": "yarn rollupc -w",
+        "build.removeSpecs": "rm -rf `find ./distribution/ -type d -name __specs__`",
+        "build.development": "yarn clear && yarn tsc.module && yarn rollup.config",
+        "build.production": "yarn clear && yarn tsc.module && yarn rollup.config && yarn typedoc && yarn build.removeSpecs",
+        "build": "yarn build.production",
         "prepublishOnly": "yarn build"
-    },
-    "jest": {
-        "transform": {
-            ".(ts|tsx)": "ts-jest"
-        },
-        "testEnvironment": "node",
-        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js"
-        ],
-        "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "/test/"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 90,
-                "functions": 95,
-                "lines": 95,
-                "statements": 95
-            }
-        },
-        "collectCoverageFrom": [
-            "src/*.{js,ts}"
-        ]
     },
     "dependencies": {
         "@plurid/pluridoc-server": "^0.0.12",
@@ -75,15 +52,17 @@
     "devDependencies": {
         "@types/jest": "^24.0.23",
         "@types/node": "^12.12.14",
+        "@typescript-eslint/eslint-plugin": "^2.9.0",
+        "@typescript-eslint/parser": "^2.9.0",
         "colors": "^1.4.0",
         "coveralls": "^3.0.9",
         "cross-env": "^6.0.3",
+        "eslint": "^6.7.2",
         "jest": "^24.9.0",
         "jest-config": "^24.9.0",
         "lodash.camelcase": "^4.3.0",
         "prompt": "^1.0.0",
         "replace-in-file": "^4.2.0",
-        "rimraf": "^3.0.0",
         "rollup": "^1.27.6",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-json": "^4.0.0",
@@ -96,8 +75,6 @@
         "shelljs": "^0.8.3",
         "ts-jest": "^24.2.0",
         "ts-node": "^8.5.4",
-        "tslint": "^5.20.1",
-        "tslint-config-standard": "^9.0.0",
         "typedoc": "^0.15.3",
         "typescript": "^3.7.2"
     }
