@@ -67,7 +67,7 @@
         ]
     },
     "dependencies": {
-        "@plurid/pluridoc-server": "^0.0.9",
+        "@plurid/pluridoc-server": "^0.0.11",
         "commmander": "^0.0.1-security",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2"
