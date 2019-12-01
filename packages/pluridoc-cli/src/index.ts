@@ -3,6 +3,8 @@ import program, { CommanderStatic } from 'commander';
 
 import PluridocServer from '@plurid/pluridoc-server';
 
+import pkg from '../package.json';
+
 
 
 const serverOptions = {
@@ -29,7 +31,7 @@ async function main(program: CommanderStatic) {
 
 
 program
-    .version('0.0.1', '-v, --version')
+    .version(pkg.version, '-v, --version')
     .description("Create and edit .plurid and .pluridoc files.")
     .option('-p, --plurid', 'create and edit a new .plurid file; specify <filename>')
     .option('-d, --pluridoc', 'create and edit a new .pluridoc file; specify <filename>')
