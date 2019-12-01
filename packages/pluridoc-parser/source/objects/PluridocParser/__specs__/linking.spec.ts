@@ -1,4 +1,4 @@
-import PluridocParser from '../';
+import PluridocParser from '..';
 
 
 
