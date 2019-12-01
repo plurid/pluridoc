@@ -1,6 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
-// import builtins from 'rollup-plugin-node-builtins';
-// import globals from 'rollup-plugin-node-globals';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 import external from 'rollup-plugin-peer-deps-external';
 import commonjs from 'rollup-plugin-commonjs';
 import sourceMaps from 'rollup-plugin-sourcemaps';
@@ -14,37 +14,46 @@ const pkg = require('./package.json');
 
 const libraryName = 'pluridoc-cli';
 
-const globals = {
+const outputGlobals = {
+    'events': 'events',
+    'child_process': 'child_process',
+    'path': 'path',
+    'fs': 'fs',
+    'util': 'util',
+    '@plurid/pluridoc-server': 'PluridocServer',
 };
 
 
 export default {
-    input: `src/index.ts`,
+    input: 'source/index.ts',
     output: [
         {
             file: pkg.main,
             name: camelCase(libraryName),
             format: 'umd',
-            globals,
+            globals: outputGlobals,
             sourcemap: true,
         },
         {
             file: pkg.module,
             format: 'es',
-            globals,
+            globals: outputGlobals,
             sourcemap: true,
         },
     ],
-    // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-    external: [],
+    external: [
+        'events',
+        'path',
+        'fs',
+        'util',
+        'child_process',
+    ],
     watch: {
-        include: 'src/**',
+        include: 'source/**',
     },
     plugins: [
-        // Allow json resolution
         json(),
 
-        // Compile TypeScript files
         typescript({
             useTsconfigDeclarationDir: true
         }),
@@ -60,13 +69,11 @@ export default {
             preferBuiltins: true,
         }),
 
-        // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
         commonjs(),
 
-        // globals(),
-        // builtins(),
+        globals(),
+        builtins(),
 
-        // Resolve source maps to the original source
         sourceMaps(),
     ],
 }
