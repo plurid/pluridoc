@@ -9,6 +9,7 @@ import typescript from 'rollup-plugin-typescript2';
 import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import image from 'rollup-plugin-img';
+import copy from 'rollup-plugin-copy';
 
 
 
@@ -66,6 +67,8 @@ export default {
 
         // Compile TypeScript files
         typescript({
+            typescript: require('typescript'),
+            objectHashIgnoreUnknownHack: true,
             useTsconfigDeclarationDir: true
         }),
 
@@ -91,5 +94,11 @@ export default {
 
         // Resolve source maps to the original source
         sourceMaps(),
+
+        copy({
+            targets: [
+                { src: 'source/client/**/*', dest: 'distribution/client' },
+            ],
+        }),
     ],
 }
