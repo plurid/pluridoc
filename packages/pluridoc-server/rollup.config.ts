@@ -25,7 +25,7 @@ const globals = {
 
 
 export default {
-    input: `src/index.ts`,
+    input: `source/index.ts`,
     output: [
         {
             file: pkg.main,
@@ -41,7 +41,6 @@ export default {
             sourcemap: true,
         },
     ],
-    // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
     external: [],
     watch: {
         include: 'src/**',
@@ -79,8 +78,7 @@ export default {
 
         copy({
             targets: [
-                { src: 'src/assets/**/*', dest: 'dist/assets' },
-                // { src: 'assets/images/**/*', dest: 'dist/public/images' }
+                { src: 'source/assets/**/*', dest: 'distribution/assets' },
             ],
         }),
     ],
