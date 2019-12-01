@@ -1,6 +1,6 @@
 {
     "name": "@plurid/pluridoc-server",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "",
     "keywords": [
         "plurid",
@@ -63,7 +63,7 @@
         ]
     },
     "dependencies": {
-        "@plurid/pluridoc-app": "^0.0.10",
+        "@plurid/pluridoc-app": "^0.0.11",
         "@plurid/pluridoc-parser": "^0.0.8",
         "archiver": "^3.1.1",
         "open": "^7.0.0",
@@ -85,7 +85,7 @@
         "prompt": "^1.0.0",
         "replace-in-file": "^4.2.0",
         "rimraf": "^3.0.0",
-        "rollup": "^1.27.5",
+        "rollup": "^1.27.6",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-json": "^4.0.0",
         "rollup-plugin-node-builtins": "^2.1.2",
