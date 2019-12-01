@@ -67,15 +67,16 @@ const Editor: React.FC<EditorProperties> = (properties) => {
 
     const [value, setValue] = useState(initialValue);
 
-    const onChange = (props: any) => {
-        const contentString = JSON.stringify(props.value.toJSON());
+    const onChange = (value: any) => {
+        const contentString = JSON.stringify(value);
         const fileWrite: IOMessageFileWrite = {
             content: contentString,
             filename,
             pluridPlaneID: content.metadata.id || '',
         };
+        console.log('fileWrite', fileWrite);
         socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
-        setValue(props.value);
+        setValue(value);
     }
 
     return (
@@ -83,10 +84,9 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             <Slate
                 editor={editor}
                 defaultValue={value}
+                onChange={onChange}
             >
-                <Editable
-                    onChange={onChange}
-                />
+                <Editable />
             </Slate>
         </div>
     );
