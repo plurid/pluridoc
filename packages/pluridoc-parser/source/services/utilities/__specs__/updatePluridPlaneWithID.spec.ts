@@ -1,6 +1,6 @@
 import {
     updatePluridPlaneWithID,
-} from '../';
+} from '..';
 
 
 

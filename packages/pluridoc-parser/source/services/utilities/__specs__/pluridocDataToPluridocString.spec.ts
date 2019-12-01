@@ -1,6 +1,6 @@
 import {
     pluridocDataToPluridocString,
-} from '../';
+} from '..';
 
 
 
