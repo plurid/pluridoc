@@ -365,10 +365,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@plurid/plurid-data@^0.1.41":
-  version "0.1.41"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-data/-/plurid-data-0.1.41.tgz#befd274632c471fabfc096d55252b6a587deed21"
-  integrity sha512-rOR4SQubF80ku6C8/Lf1IaujEKHhWBhiAUP3L9QjE1YBN6ZVefifMswFMfiFMi79s4GdYY7N0jfre+OiK6ELlQ==
+"@plurid/plurid-data@^0.1.43":
+  version "0.1.43"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-data/-/plurid-data-0.1.43.tgz#3372ed636e29506eab212832179bb697be7fa10a"
+  integrity sha512-uB0CcHb54xCvmA1bzkHo50WTxmP/NmtdfVRJ4ktYFRaLCVJ1mYrUP+xJOdUK8tccdfoX8DrjV2TSa1nPc7zSzg==
 
 "@plurid/plurid-engine@^0.1.19":
   version "0.1.19"
@@ -385,12 +385,12 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-pubsub/-/plurid-pubsub-0.1.3.tgz#f5014195a065f13c47f2895e4942ba1f3ec045a3"
   integrity sha512-mviWTVQhkIifQApuLa60jSVA+azeeKXYvNTFejzJJtEFG0s1h2a1BqtaH/Fj4wCzymivJsD47JqbaLfg7Xw4zA==
 
-"@plurid/plurid-react@^0.1.47":
-  version "0.1.47"
-  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.47.tgz#d60189c4a65eca62b6072e1c6bef0da3de0173da"
-  integrity sha512-SVa/L+xFzLY/XDJdC4f/90dqDr0GGba1nfdLzXOlGVpeEy54qYyhiS20yfVFy4Cpz39hCQBmDHZlYJTuZO+uCw==
+"@plurid/plurid-react@^0.1.49":
+  version "0.1.49"
+  resolved "https://registry.yarnpkg.com/@plurid/plurid-react/-/plurid-react-0.1.49.tgz#eaea7666331bdb1359bd827fcd12fc9d42bcd2c8"
+  integrity sha512-KhsGWL2waeIBbA0xD/HM8Kkvi4sQI4erMpBizrGlySYd4MpdOlokSaMNisKfdJAlYvldg7ANsxPMSO8or6V38g==
   dependencies:
-    "@plurid/plurid-data" "^0.1.41"
+    "@plurid/plurid-data" "^0.1.43"
     "@plurid/plurid-engine" "^0.1.19"
     "@plurid/plurid-functions" "^0.1.1"
     "@plurid/plurid-pubsub" "^0.1.3"
@@ -408,12 +408,12 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-ui-react/-/plurid-ui-react-0.1.31.tgz#c84198480db3259464376ec4ccf2017129bdea78"
   integrity sha512-BhP9HbMr3UbVbuVSC3H6R6trRTsmZ8dO3H+QAJ8jCc4aTrEv9kSmEkHzmoFrFo+JNe/ReiM5W1LaNaeL1ZOjTw==
 
-"@plurid/pluridoc-app@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.10.tgz#ee4933a72fe08f9fa6500ac69ebce69597c2d896"
-  integrity sha512-T06LD6ASk6viXBRUxjpjmAvoSq2vuoE+HugqxmQ3xbBDNwwc7bJVMQebn2B9i9apzQF1BBk0+uRp69a73xICHQ==
+"@plurid/pluridoc-app@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.11.tgz#20544e5ffc2cbe7e50037d9c2542cc649c24ba6d"
+  integrity sha512-dGCEpBmbOFftBiIqQfENyH0fc+V+SgQfrtK3h3SGMzDVzSorlh6clwLVVpFOZ0YubEiYp1FJArkGL/DVT15HEQ==
   dependencies:
-    "@plurid/plurid-react" "^0.1.47"
+    "@plurid/plurid-react" "^0.1.49"
     "@plurid/plurid-themes" "^0.1.0"
     "@plurid/pluridoc-parser" "^0.0.8"
     react "^16.12.0"
@@ -421,8 +421,8 @@
     react-redux "^7.1.3"
     redux "^4.0.4"
     redux-thunk "^2.3.0"
-    slate "^0.50.2"
-    slate-react "^0.50.3"
+    slate "^0.50.4"
+    slate-react "^0.50.5"
     styled-components "^4.4.1"
 
 "@plurid/pluridoc-parser@^0.0.8":
@@ -4605,10 +4605,10 @@ rollup-pluginutils@2.8.1, rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.3.1, 
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.27.5:
-  version "1.27.5"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.27.5.tgz#d100fb0ffd8353575cb2057152547b9abfddfe59"
-  integrity sha512-8rfVdzuTg2kt8ObD9LNJpEwUN7B6lsl3sHc5fddtgICpLjpYeSf4m2+RftBzcCaBTMi1iYX3Ez8zFT4Gj2nJjg==
+rollup@^1.27.6:
+  version "1.27.6"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.27.6.tgz#287f255af0c76c30a60df67900e5dd8379f3147e"
+  integrity sha512-/NA1sjU92K9KZHiPdrHMzykFABcjeDaxS8xh19hYj8FKbtGNEahbXkdYatlk75dZF0oRXwzA9KIjHedcxcnYng==
   dependencies:
     "@types/estree" "*"
     "@types/node" "*"
@@ -4755,10 +4755,10 @@ slash@^2.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-2.0.0.tgz#de552851a1759df3a8f206535442f5ec4ddeab44"
   integrity sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A==
 
-slate-react@^0.50.3:
-  version "0.50.3"
-  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.50.3.tgz#85937bb922897ed3496b2adb635fdc82db2efa52"
-  integrity sha512-VAiA9DhiXYbCJMRo06Hi6wQ7DHYnjXtJRJXQv2u/uOMSVYtly1whvFAh2d73T2o6X5PyoHKqWPStF/kqZh/QNg==
+slate-react@^0.50.5:
+  version "0.50.5"
+  resolved "https://registry.yarnpkg.com/slate-react/-/slate-react-0.50.5.tgz#9df139741e5ce4fe3e57467f4f44100b4b12037b"
+  integrity sha512-BTu4uzAc4ViZPp52rWMU4iaJr1GmOeXPOAvJROvB4T5bZnCQKzydHC8mx3Nd5BFfs47Mkp+ILfZGcpcHp27CWg==
   dependencies:
     "@types/debounce" "^1.2.0"
     "@types/debug" "^4.1.5"
@@ -4771,15 +4771,16 @@ slate-react@^0.50.3:
     is-plain-object "^3.0.0"
     scroll-into-view-if-needed "^2.2.20"
 
-slate@^0.50.2:
-  version "0.50.2"
-  resolved "https://registry.yarnpkg.com/slate/-/slate-0.50.2.tgz#74b1250e6e3b9f420ec9585dabd8be0228e8e6d4"
-  integrity sha512-t+rMgoIcQ+uLozO9ZdXeVq4wUpWjISdqOwwwkH8JyM4z62gz1K6AfNWvUplLsQSTa+XKd6Rb+9OPQvO//EBRtQ==
+slate@^0.50.4:
+  version "0.50.4"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.50.4.tgz#996332116aee883255640b95096fd09a3e48033d"
+  integrity sha512-WduHethrRUvutElJut9gdJ2nmgnt/AS+H+x0jq+7Hl0A6E5Xnb5o9mqiHB2OrgqW4capWGnqbFJAaIU5r8aOeg==
   dependencies:
     "@types/esrever" "^0.2.0"
     esrever "^0.2.0"
     immer "^5.0.0"
     is-plain-object "^3.0.0"
+    tiny-warning "^1.0.3"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -5166,6 +5167,11 @@ throat@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/throat/-/throat-4.1.0.tgz#89037cbc92c56ab18926e6ba4cbb200e15672a6a"
   integrity sha1-iQN8vJLFarGJJua6TLsgDhVnKmo=
+
+tiny-warning@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.3.tgz#94a30db453df4c643d0fd566060d60a875d84754"
+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
 
 tmpl@1.0.x:
   version "1.0.4"
