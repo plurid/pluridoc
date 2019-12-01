@@ -64,15 +64,15 @@
     },
     "dependencies": {
         "@plurid/plurid-themes": "^0.1.0",
-        "@plurid/plurid-react": "^0.1.47",
+        "@plurid/plurid-react": "^0.1.49",
         "@plurid/pluridoc-parser": "^0.0.8",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
         "react-redux": "^7.1.3",
         "redux": "^4.0.4",
         "redux-thunk": "^2.3.0",
-        "slate": "^0.50.2",
-        "slate-react": "^0.50.3",
+        "slate": "^0.50.4",
+        "slate-react": "^0.50.5",
         "styled-components": "^4.4.1"
     },
     "devDependencies": {
@@ -97,7 +97,7 @@
         "redux-devtools-extension": "^2.13.8",
         "replace-in-file": "^4.2.0",
         "rimraf": "^3.0.0",
-        "rollup": "^1.27.5",
+        "rollup": "^1.27.6",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-img": "^1.1.0",
         "rollup-plugin-json": "^4.0.0",
