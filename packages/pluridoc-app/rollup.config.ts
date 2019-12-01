@@ -26,6 +26,7 @@ const globals = {
     'slate': 'slate',
     'slate-react': 'slateReact',
     '@plurid/plurid-react': 'PluridApp',
+    '@plurid/plurid-themes': 'pluridThemes',
 };
 
 
@@ -49,12 +50,14 @@ export default {
         },
     ],
     // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-    external: [],
+    external: [
+        'fs',
+        'path',
+    ],
     watch: {
-        include: 'src/**',
+        include: 'source/**',
     },
     plugins: [
-        // Allow json resolution
         json(),
 
         postcss({
