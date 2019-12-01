@@ -192,10 +192,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.8.tgz#bd5c24cecc3cb2d8ac5f47a9c482e4f20e9495ff"
   integrity sha512-J3J96phX5PWA9tJWnnRChQlzL13eSkN9kg6H7ACbi1PZl3xbQfYKYKn3JUzi9AVIX0O6TpLLQgH3wwO9DqlzCA==
 
-"@plurid/pluridoc-server@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-server/-/pluridoc-server-0.0.9.tgz#06d2d33e9d9ec2ac8f553908b536a1fa725b8477"
-  integrity sha512-cVRUdI65/hx0GoZ0lDtFKuecMQ8+d/e2WIlWpE1yHVTnnYPxAy4r1y1dGJVP0dKCRFfo2oMXs6E58LSfK1x04g==
+"@plurid/pluridoc-server@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-server/-/pluridoc-server-0.0.10.tgz#831d0105aa277f90bcdb189b09a9b05c07fb3dda"
+  integrity sha512-7KoYbFD6/pVLIbxqkZ9hGXlh0M3prymyENNZ75vsuHrwKPwcv7oSkdGA68IqzrVFUxMdJ7c+F4/KqHs9MfhrNw==
   dependencies:
     "@plurid/pluridoc-app" "^0.0.11"
     "@plurid/pluridoc-parser" "^0.0.8"
