@@ -32,7 +32,7 @@
         "typedoc": "typedoc --out documentation --target es6 --theme minimal --mode file source",
         "tsc.module": "tsc --module commonjs",
         "rollup.config": "rollup -c rollup.config.ts",
-        "start": "yarn rollupc -w",
+        "start": "yarn rollup.config -w",
         "build.removeSpecs": "rm -rf `find ./distribution/ -type d -name __specs__`",
         "build.development": "yarn clear && yarn tsc.module && yarn rollup.config",
         "build.production": "yarn clear && yarn tsc.module && yarn rollup.config && yarn typedoc && yarn build.removeSpecs",

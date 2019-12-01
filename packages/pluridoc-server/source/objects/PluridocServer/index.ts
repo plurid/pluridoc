@@ -209,11 +209,10 @@ class PluridocServer implements IPluridocServer {
                 } = message;
 
                 const contentParsed = JSON.parse(content);
-                const { nodes } = contentParsed.document;
                 const lines: string[] = [];
-                nodes.map((node: any) => {
+                contentParsed.map((node: any) => {
                     if (node.type === 'paragraph') {
-                        lines.push(node.nodes[0].text);
+                        lines.push(node.children[0].text);
                     }
                 });
 
