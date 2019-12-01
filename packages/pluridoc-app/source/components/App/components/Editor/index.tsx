@@ -34,7 +34,7 @@ interface EditorProperties {
 
 
 const Editor: React.FC<EditorProperties> = (properties) => {
-    // const socket = io();
+    const socket = io();
 
     const editor = useMemo(() => withReact(createEditor()), []);
 
@@ -74,7 +74,7 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             filename,
             pluridPlaneID: content.metadata.id || '',
         };
-        // socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
+        socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(props.value);
     }
 

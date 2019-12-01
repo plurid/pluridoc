@@ -33,7 +33,7 @@ interface FileOwnProperties {
 }
 
 const File: React.FC<FileOwnProperties> = (properties) => {
-    // const socket = io();
+    const socket = io();
 
     const context = useContext(Context);
 
@@ -47,7 +47,7 @@ const File: React.FC<FileOwnProperties> = (properties) => {
     } = properties;
 
     const newPluridPlane = () => {
-        // socket.emit(IO_CONNECTIONS.NEW_PLURID_PLANE, filename);
+        socket.emit(IO_CONNECTIONS.NEW_PLURID_PLANE, filename);
     }
 
     const pages: PluridPage[] = [];
