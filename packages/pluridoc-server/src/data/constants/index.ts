@@ -7,4 +7,4 @@ export const PLURID_EXTENSION = '.plurid';
 export const PLURIDOC_EXTENSION = '.pluridoc';
 
 
-export const FAVICON = path.join(__dirname, '../src/assets', 'favicon.ico');
+export const FAVICON = path.join(__dirname, './assets', 'favicon.ico');
