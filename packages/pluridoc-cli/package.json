@@ -67,7 +67,7 @@
         ]
     },
     "dependencies": {
-        "@plurid/pluridoc-server": "^0.0.6",
+        "@plurid/pluridoc-server": "^0.0.8",
         "commmander": "^0.0.1-security",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2"
@@ -84,7 +84,7 @@
         "prompt": "^1.0.0",
         "replace-in-file": "^4.2.0",
         "rimraf": "^3.0.0",
-        "rollup": "^1.27.5",
+        "rollup": "^1.27.6",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-json": "^4.0.0",
         "rollup-plugin-node-builtins": "^2.1.2",
