@@ -64,7 +64,7 @@
         ]
     },
     "dependencies": {
-        "@plurid/plurid-react": "^0.1.49",
+        "@plurid/plurid-react": "^0.1.52",
         "@plurid/plurid-themes": "^0.1.0",
         "@plurid/pluridoc-parser": "^0.0.8",
         "react": "^16.12.0",
