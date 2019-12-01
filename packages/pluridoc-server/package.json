@@ -24,7 +24,7 @@
     },
     "scripts": {
         "clear": "rm -rf ./distribution",
-        "lint": "tslint --project tsconfig.json -t codeFrame 'source/**/*.ts'",
+        "lint": "eslint ./source --ext .ts,.tsx",
         "spec": "jest --coverage",
         "spec.watch": "jest --coverage --watch",
         "spec.production": "npm run lint && npm run spec -- --no-cache",
