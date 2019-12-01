@@ -429,10 +429,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-ui-react/-/plurid-ui-react-0.1.31.tgz#c84198480db3259464376ec4ccf2017129bdea78"
   integrity sha512-BhP9HbMr3UbVbuVSC3H6R6trRTsmZ8dO3H+QAJ8jCc4aTrEv9kSmEkHzmoFrFo+JNe/ReiM5W1LaNaeL1ZOjTw==
 
-"@plurid/pluridoc-app@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.11.tgz#20544e5ffc2cbe7e50037d9c2542cc649c24ba6d"
-  integrity sha512-dGCEpBmbOFftBiIqQfENyH0fc+V+SgQfrtK3h3SGMzDVzSorlh6clwLVVpFOZ0YubEiYp1FJArkGL/DVT15HEQ==
+"@plurid/pluridoc-app@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-app/-/pluridoc-app-0.0.12.tgz#3d37d18004ba084139e2ef6de7e6d3e9aef29ae9"
+  integrity sha512-DMZVgy/pZN+6NwQdKUBhKv5nA0YlWDEFz7b3i3RV4ZM6G4y177EjJZIdigeaZ7v6kni7lu82HTKXGtamiU3ZRA==
   dependencies:
     "@plurid/plurid-react" "^0.1.49"
     "@plurid/plurid-themes" "^0.1.0"
@@ -4502,11 +4502,6 @@ rechoir@^0.6.2:
   integrity sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
   dependencies:
     resolve "^1.1.6"
-
-redux-devtools-extension@^2.13.8:
-  version "2.13.8"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
-  integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
 redux-thunk@^2.3.0:
   version "2.3.0"
