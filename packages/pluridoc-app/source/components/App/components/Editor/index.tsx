@@ -5,7 +5,6 @@ import React, {
 
 import {
     createEditor,
-    Text,
 } from 'slate';
 import {
     Slate,
@@ -74,7 +73,6 @@ const Editor: React.FC<EditorProperties> = (properties) => {
             filename,
             pluridPlaneID: content.metadata.id || '',
         };
-        console.log('fileWrite', fileWrite);
         socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(value);
     }
