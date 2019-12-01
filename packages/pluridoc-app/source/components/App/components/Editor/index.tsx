@@ -78,15 +78,17 @@ const Editor: React.FC<EditorProperties> = (properties) => {
     }
 
     return (
-        <div>
-            <Slate
-                editor={editor}
-                defaultValue={value}
-                onChange={onChange}
-            >
-                <Editable />
-            </Slate>
-        </div>
+        <Slate
+            editor={editor}
+            defaultValue={value}
+            onChange={onChange}
+        >
+            <Editable
+                style={{
+                    padding: '3rem',
+                }}
+            />
+        </Slate>
     );
 }
 
