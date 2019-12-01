@@ -1,6 +1,6 @@
 {
     "name": "@plurid/pluridoc-cli",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "",
     "keywords": [
         "plurid",
@@ -44,7 +44,7 @@
         "prepublishOnly": "yarn build"
     },
     "dependencies": {
-        "@plurid/pluridoc-server": "^0.0.13",
+        "@plurid/pluridoc-server": "^0.0.14",
         "commmander": "^0.0.1-security",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2"
