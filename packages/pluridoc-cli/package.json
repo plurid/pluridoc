@@ -44,7 +44,7 @@
         "prepublishOnly": "yarn build"
     },
     "dependencies": {
-        "@plurid/pluridoc-server": "^0.0.12",
+        "@plurid/pluridoc-server": "^0.0.13",
         "commmander": "^0.0.1-security",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2"
