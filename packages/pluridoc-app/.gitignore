@@ -5,10 +5,10 @@ coverage
 *.log
 .vscode
 .idea
-dist
+distribution
 compiled
 .awcache
 .rpt2_cache
-docs
+documentation
 
-src/client
+source/client

@@ -4,7 +4,7 @@ const path = require('path');
 
 
 module.exports = {
-    entry: './src/components/index.tsx',
+    entry: './source/components/index.tsx',
     mode: 'development',
     module: {
         rules: [
@@ -33,6 +33,6 @@ module.exports = {
     },
     output: {
         filename: 'script.js',
-        path: path.resolve(__dirname, './src/client/')
+        path: path.resolve(__dirname, './source/client/')
     }
 };
