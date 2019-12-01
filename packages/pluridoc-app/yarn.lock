@@ -447,10 +447,10 @@
   resolved "https://registry.yarnpkg.com/@plurid/plurid-ui-react/-/plurid-ui-react-0.1.31.tgz#c84198480db3259464376ec4ccf2017129bdea78"
   integrity sha512-BhP9HbMr3UbVbuVSC3H6R6trRTsmZ8dO3H+QAJ8jCc4aTrEv9kSmEkHzmoFrFo+JNe/ReiM5W1LaNaeL1ZOjTw==
 
-"@plurid/pluridoc-parser@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.8.tgz#bd5c24cecc3cb2d8ac5f47a9c482e4f20e9495ff"
-  integrity sha512-J3J96phX5PWA9tJWnnRChQlzL13eSkN9kg6H7ACbi1PZl3xbQfYKYKn3JUzi9AVIX0O6TpLLQgH3wwO9DqlzCA==
+"@plurid/pluridoc-parser@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@plurid/pluridoc-parser/-/pluridoc-parser-0.0.9.tgz#aaac2bb29c39dd22a6649c296bfb5d04b3fff147"
+  integrity sha512-dMkbUlAb/yhiAE4464QO2Sc/5DwX3CcOEWEQ7OPazJxCGtMFtHdcT8/DSEmr5vNWTorLbFEU1YWujTlHpf/URQ==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
