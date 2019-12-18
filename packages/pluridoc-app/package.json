@@ -64,6 +64,7 @@
         ]
     },
     "dependencies": {
+        "@plurid/chisel-react": "^0.1.5",
         "@plurid/plurid-react": "^0.1.82",
         "@plurid/plurid-themes": "^0.1.21",
         "@plurid/pluridoc-parser": "^0.0.9",
