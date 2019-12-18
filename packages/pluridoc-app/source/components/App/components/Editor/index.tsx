@@ -3,14 +3,9 @@ import React, {
     useState,
 } from 'react';
 
-import {
-    createEditor,
-} from 'slate';
-import {
-    Slate,
-    Editable,
-    withReact,
-} from 'slate-react';
+import Chisel, {
+    ChiselValue,
+} from '@plurid/chisel-react';
 
 import {
     IO_CONNECTIONS,
@@ -34,8 +29,6 @@ interface EditorProperties {
 
 const Editor: React.FC<EditorProperties> = (properties) => {
     const socket = io();
-
-    const editor = useMemo(() => withReact(createEditor()), []);
 
     const {
         filename,
@@ -62,33 +55,33 @@ const Editor: React.FC<EditorProperties> = (properties) => {
         return nodes;
     }
 
-    const initialValue: any = parseValueFromContent(content);
+    const initialValue: ChiselValue = {
+        nodes: [],
+    };
+
+    // const initialValue: any = parseValueFromContent(content);
 
     const [value, setValue] = useState(initialValue);
 
-    const onChange = (value: any) => {
-        const contentString = JSON.stringify(value);
-        const fileWrite: IOMessageFileWrite = {
-            content: contentString,
-            filename,
-            pluridPlaneID: content.metadata.id || '',
-        };
-        socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
+    const onChange = (
+        event: any,
+        value: any,
+    ) => {
+        // const contentString = JSON.stringify(value);
+        // const fileWrite: IOMessageFileWrite = {
+        //     content: contentString,
+        //     filename,
+        //     pluridPlaneID: content.metadata.id || '',
+        // };
+        // socket.emit(IO_CONNECTIONS.FILE_WRITE, fileWrite);
         setValue(value);
     }
 
     return (
-        <Slate
-            editor={editor}
-            defaultValue={value}
-            onChange={onChange}
-        >
-            <Editable
-                style={{
-                    padding: '3rem',
-                }}
-            />
-        </Slate>
+        <Chisel
+            value={value}
+            atChange={onChange}
+        />
     );
 }
 
