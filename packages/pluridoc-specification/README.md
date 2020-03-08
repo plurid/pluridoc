@@ -60,7 +60,7 @@ Inside the plurid plane there can be any content, and if the `processor` propert
 
 ```
 <<< id: plane-one
-plane 1 with link to :::plane-two:::plane 2:::
+plane 1 with link to ::|plane-two:::plane 2|::
 >>>
 
 <<< id: plane-two
@@ -70,9 +70,8 @@ plane 2
 
 The `plurid link` syntax is formed from
 
-
 ```
-:::plurid-plane-id:::link text:::
+::|plurid-plane-id:::link text|::
  |        |        |     |     | ending separator
  |        |        |     |
  |        |        |     | the text to be displayed for the link
@@ -89,5 +88,5 @@ The `plurid link` has one required property, the target of the link: the `id` or
 A `plurid link` can link across documents from the same `.pluridoc` specifying the `document` property. Such a link would look like
 
 ```
-:::id: plurid-plane-id; document: id-of-another-document:::link text:::
+::|id: plurid-plane-id; document: id-of-another-document:::link text|::
 ```
