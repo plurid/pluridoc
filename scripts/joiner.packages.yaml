@@ -7,6 +7,7 @@ package:
   publisher: npm
   ignore:
     - packages/pluridoc-specification
+    - packages/pluridoc-grammar
 
 yarnWorkspace: false
 
