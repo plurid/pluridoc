@@ -1,0 +1,21 @@
+---
+packages:
+  - ./packages/*
+
+package:
+  manager: yarn
+  publisher: npm
+  ignore:
+    - packages/pluridoc-specification
+
+yarnWorkspace: false
+
+commit:
+  engine: git
+  combine: true
+  root: ''
+  fullFolder: false
+  divider: ' > '
+  message: 'setup: package'
+
+runFrom: ../
