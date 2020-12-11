@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/plurid/pluridoc"
     },
-    "license": "MIT",
+    "license": "SEE LICENSE IN LICENSE",
     "engines": {
         "vscode": "^1.37.0"
     },

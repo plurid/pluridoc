@@ -3,19 +3,30 @@
         <img src="https://raw.githubusercontent.com/plurid/pluridoc/master/about/identity/pluridoc-logo.png" height="250px">
     </a>
     <br />
+    <br />
     <a target="_blank" href="https://github.com/plurid/pluridoc/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-blue.svg?colorB=1380C3&style=for-the-badge" alt="License: MIT">
+        <img src="https://img.shields.io/badge/license-DEL-blue.svg?colorB=1380C3&style=for-the-badge" alt="License: DEL">
     </a>
 </p>
+
 
 
 <h1 align="center">
     pluridoc
 </h1>
 
+
+
+<br />
+
+
+
+### Contents
+
 + [General](#general)
 + [Usage](#usage)
 + [Packages](#packages)
++ [Codeophon](#codeophon)
 
 
 
@@ -146,3 +157,10 @@ and run
 [@plurid/pluridoc-grammar][pluridoc-grammar] • text editor syntax highlighting
 
 [pluridoc-grammar]: https://github.com/plurid/pluridoc/tree/master/packages/pluridoc-grammar
+
+
+
+## [Codeophon](https://github.com/ly3xqhl8g9/codeophon)
+
++ licensing: [delicense](https://github.com/ly3xqhl8g9/delicense)
++ versioning: [αver](https://github.com/ly3xqhl8g9/alpha-versioning)
